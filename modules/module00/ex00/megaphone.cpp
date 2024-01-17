@@ -11,23 +11,39 @@ $>./megaphone
 $>
 
 */
+#include <vector>
+#include <string>
+#include <cstdio>
 
-void    LoudIt(char *av[], int ac)
+void LoudIt(std::vector<std::string>& args)
 {
-    for (int i = 1; i < ac; i++) {
-        for (char *p = av[i]; *p; ++p) {
-            *p = (std::toupper(*p));
-            std::cout << *p;
-        }
-        std::cout << " ";
-    }
-    std::cout << std::endl;
+  for (const auto& arg : args) {
+      for (char c : arg) {
+          putchar(std::toupper(c));
+      }
+      putchar(' ');
+  }
+  putchar('\n');
 }
+// void    LoudIt(char *av[], int ac)
+// {
+//     for (int i = 1; i < ac; i++) {
+//         for (char *p = av[i]; *p; ++p) {
+//             *p = (std::toupper(*p));
+//             std::cout << *p;
+//         }
+//         std::cout << " ";
+//     }
+//     std::cout << std::endl;
+// }
 
 int main(int ac, char *av[])
 {
-    (ac == 1) ? :
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+    std::vector<std::string> args(av + 1, av + ac);
+    if (ac == 1)
+        (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl);
+    else
+        (LoudIt(args));
     return 0;
 }
 
