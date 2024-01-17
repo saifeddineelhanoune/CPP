@@ -12,12 +12,8 @@ class Course {
         int CourseID;
     public:
         Course(const std::string& name, int id) : CourseName(name), CourseID(id) {}
-        std::string GetCourseName() const {
-            return CourseName;
-        }
-        int GetCourseID() const {
-            return CourseID;
-        }
+        std::string GetCourseName() const;
+        int GetCourseID() const;
 };
 
 #endif

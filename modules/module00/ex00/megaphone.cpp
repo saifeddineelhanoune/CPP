@@ -1,5 +1,3 @@
-#include <iostream>
-
 /*
 $>./megaphone "shhhhh... I think the students are asleep..."
                SHHHHH... I THINK THE STUDENTS ARE ASLEEP...
@@ -9,41 +7,26 @@ $>./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
 $>./megaphone
 * LOUD AND UNBEARABLE FEEDBACK NOISE *
 $>
-
 */
-#include <vector>
+#include <iostream>
 #include <string>
-#include <cstdio>
-
-void LoudIt(std::vector<std::string>& args)
-{
-  for (const auto& arg : args) {
-      for (char c : arg) {
-          putchar(std::toupper(c));
-      }
-      putchar(' ');
-  }
-  putchar('\n');
-}
-// void    LoudIt(char *av[], int ac)
-// {
-//     for (int i = 1; i < ac; i++) {
-//         for (char *p = av[i]; *p; ++p) {
-//             *p = (std::toupper(*p));
-//             std::cout << *p;
-//         }
-//         std::cout << " ";
-//     }
-//     std::cout << std::endl;
-// }
 
 int main(int ac, char *av[])
 {
-    std::vector<std::string> args(av + 1, av + ac);
-    if (ac == 1)
-        (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl);
-    else
-        (LoudIt(args));
+    std::string out;
+    int i = 0;
+    while(++i < ac) {
+        std::string arguments(av[i]);
+        for (int j = 0; arguments[j]; j++) {
+            arguments[j] = toupper(arguments[j]);
+            std::cout << arguments[j];
+        }
+        if (i < (ac - 1))
+            std::cout << " ";
+        out += arguments;
+    }
+    if (out.empty())
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     return 0;
 }
 

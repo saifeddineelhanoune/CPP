@@ -7,6 +7,6 @@ class Student {
         char *name;
         int id;
         Course courses[10];     
-}
+};
 
 #endif
