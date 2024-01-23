@@ -7,8 +7,14 @@ class PhoneBook {
     public:
        PhoneBook();
        ~PhoneBook();
-       int add_contact(Contact contact);
-       void print_contact(int index) const;
+       int AddContact(Contact contact);
+       void Print_contact(int index) const;
+       int  GetIndex() const;
+       int  ContactNumber() const;
+    private:
+        int Index;
+        int ContactsNumber;
+        Contact contact[8];
 };
 
 #endif
