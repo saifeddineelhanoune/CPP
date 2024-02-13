@@ -81,3 +81,7 @@ void subnet(const string& ipAddress, const string& subnetMask)
     } 
     cout << endl; 
 }
+
+int main() 
+{ 
+    string ipAddress = "
