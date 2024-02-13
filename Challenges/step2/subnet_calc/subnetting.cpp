@@ -84,4 +84,12 @@ void subnet(const string& ipAddress, const string& subnetMask)
 
 int main() 
 { 
-    string ipAddress = "
+    string ipAddress, subnetMask;
+
+    cout << "Enter IP address: ";
+    cin >> ipAddress;
+    cout << "Enter subnet mask: ";
+    cin >> subnetMask;
+    subnet(ipAddress, subnetMask);
+    return 0;
+}
