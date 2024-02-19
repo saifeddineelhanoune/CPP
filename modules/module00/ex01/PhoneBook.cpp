@@ -12,7 +12,7 @@ PhoneBook::~PhoneBook()
 void PhoneBook::show_startup(void)
 {
 	std::cout << "# PHONEBOOK" << std::endl;
-	std::cout << "# Enter your command [HELP, ADD, SEARCH, EXIT]:" << std::endl;
+	std::cout << "# Enter your command [ADD, SEARCH, EXIT]:" << std::endl;
 }
 
 void PhoneBook::add_contact(void)

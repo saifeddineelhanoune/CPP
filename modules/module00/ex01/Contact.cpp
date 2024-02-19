@@ -38,7 +38,7 @@ bool Contact::set_informations(int index)
 	return (true);
 }
 
-void Contact::display_header()
+void Contact::display_header() const
 {
 	std::cout << "|" << std::setw(10) << this->index;
 	for (int i = FirstName; i <= Nickname; i++)
@@ -52,7 +52,7 @@ void Contact::display_header()
 	std::cout << "|" << std::endl;
 }
 
-void Contact::display(void)
+void Contact::display(void) const
 {
 	std::cout << "# Contact [" << this->index << "]" << std::endl;
 	for (int i = FirstName; i <= Secret; i++)
