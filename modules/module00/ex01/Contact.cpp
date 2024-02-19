@@ -1,5 +1,14 @@
 #include "Contact.hpp"
 
+Contact::Contact() {
+	for (int i = FirstName; i <= Secret; i++)
+		this->informations[i] = std::string();
+}
+
+Contact::~Contact() {
+
+}
+
 std::string Contact::fields_name[5] = {
 	"First Name",
 	"Last Name",
@@ -8,18 +17,7 @@ std::string Contact::fields_name[5] = {
 	"Darkest Secret"
 };
 
-Contact::Contact()
-{
-	for (int i = FirstName; i <= Secret; i++)
-		this->informations[i] = std::string();
-}
-
-Contact::~Contact()
-{
-}
-
-bool Contact::set_informations(int index)
-{
+bool Contact::set_informations(int index) {
 	this->index = index;
 	for (int i = FirstName; i <= Secret; i++)
 	{
@@ -38,8 +36,7 @@ bool Contact::set_informations(int index)
 	return (true);
 }
 
-void Contact::display_header()
-{
+void Contact::display_header() {
 	std::cout << "|" << std::setw(10) << this->index;
 	for (int i = FirstName; i <= Nickname; i++)
 	{
@@ -52,8 +49,7 @@ void Contact::display_header()
 	std::cout << "|" << std::endl;
 }
 
-void Contact::display(void)
-{
+void Contact::display(void) {
 	std::cout << "# Contact [" << this->index << "]" << std::endl;
 	for (int i = FirstName; i <= Secret; i++)
 	{

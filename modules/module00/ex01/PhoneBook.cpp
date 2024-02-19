@@ -1,30 +1,26 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
-{
+PhoneBook::PhoneBook() {
 	this->amount = 0;
 }
 
-PhoneBook::~PhoneBook()
-{
+PhoneBook::~PhoneBook() {
+
 }
 
-void PhoneBook::show_startup(void)
-{
+void PhoneBook::show_startup(void) {
 	std::cout << "# PHONEBOOK" << std::endl;
 	std::cout << "# Enter your command [ADD, SEARCH, EXIT]:" << std::endl;
 }
 
-void PhoneBook::add_contact(void)
-{
+void PhoneBook::add_contact(void) {
 	if (this->amount == 8)
 		std::cout << "# The directory is full !" << std::endl;
 	else if (this->contacts[this->amount].set_informations(this->amount + 1))
 		this->amount++;
 }
 
-void PhoneBook::show_searched_header(void)
-{
+void PhoneBook::show_searched_header(void) {
 	std::cout << "|-------------------------------------------|" << std::endl;
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|-------------------------------------------|" << std::endl;
@@ -33,8 +29,7 @@ void PhoneBook::show_searched_header(void)
 	std::cout << "|-------------------------------------------|" << std::endl;
 }
 
-void PhoneBook::search_contact(void)
-{
+void PhoneBook::search_contact(void) {
 	int	index;
 
 	if (this->amount == 0)

@@ -14,7 +14,7 @@ class PhoneBook
         int		amount;
     public:
         PhoneBook();
-        virtual ~PhoneBook();
+        ~PhoneBook();
 
         void	show_startup(void);
         void	add_contact(void);
