@@ -26,7 +26,7 @@ void PhoneBook::add_contact(void)
 void PhoneBook::show_searched_header(void)
 {
 	std::cout << "|-------------------------------------------|" << std::endl;
-	std::cout << "| Index | First Name | Last Name |  Nickname|" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|-------------------------------------------|" << std::endl;
 	for (int i = 0; i < this->amount; i++)
 		this->contacts[i].display_header();
@@ -41,7 +41,7 @@ void PhoneBook::search_contact(void)
 		std::cout << "# Add a contact before searching !" << std::endl;
 	else
 	{
-		this->show_searched_header();
+		this->show_search_header();
 		std::cout << "# Enter Index to display Informations or 0 to Exit\n~";
 		while (!(std::cin >> index) || (index < 0 || index > this->amount))
 		{
