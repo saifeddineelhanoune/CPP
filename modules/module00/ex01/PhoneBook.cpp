@@ -41,7 +41,7 @@ void PhoneBook::search_contact(void)
 		std::cout << "# Add a contact before searching !" << std::endl;
 	else
 	{
-		this->show_search_header();
+		this->show_searched_header();
 		std::cout << "# Enter Index to display Informations or 0 to Exit\n~";
 		while (!(std::cin >> index) || (index < 0 || index > this->amount))
 		{
