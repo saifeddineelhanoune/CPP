@@ -13,8 +13,8 @@ void subnet(const string& ipAddress, const string& subnetMask)
 { 
     // Parse IP address and subnet mask 
     vector<int> ipParts; 
-    vector<int> maskParts; 
-  
+    vector<int> maskParts;
+    
     istringstream ipStream(ipAddress); 
     istringstream maskStream(subnetMask); 
     string ipPart; 
