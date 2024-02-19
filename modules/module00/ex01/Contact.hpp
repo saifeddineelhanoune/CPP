@@ -23,8 +23,8 @@ class Contact
         virtual ~Contact();
 
         bool	set_informations(int index);
-        void	display_header(void) const;
-        void	display(void) const;
+        void	display_header(void);
+        void	display(void);
 };
 
 #endif

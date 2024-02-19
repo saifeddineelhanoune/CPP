@@ -84,4 +84,8 @@ void Account::displayStatus(void) const
     std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";deposits:" << this->_nbDeposits << ";withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
+void Account::_displayTimestamp(void)
+{
+    std::cout << "[20150406_153629]";
+}
 
