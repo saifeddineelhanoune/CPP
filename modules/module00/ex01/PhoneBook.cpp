@@ -15,7 +15,7 @@ void PhoneBook::show_startup(void) {
 
 void PhoneBook::add_contact(void) {
 	if (this->amount == 8)
-		std::cout << "# The directory is full !" << std::endl;
+		std::cout << "# The table contacts is full !" << std::endl;
 	else if (this->contacts[this->amount].set_informations(this->amount + 1))
 		this->amount++;
 }
@@ -33,13 +33,11 @@ void PhoneBook::search_contact(void) {
 	int	index;
 
 	if (this->amount == 0)
-		std::cout << "# Add a contact before searching !" << std::endl;
-	else
-	{
+		std::cout << "# No contact found!, please add one before searching!" << std::endl;
+	else {
 		this->show_searched_header();
 		std::cout << "# Enter Index to display Informations or 0 to Exit\n~";
-		while (!(std::cin >> index) || (index < 0 || index > this->amount))
-		{
+		while (!(std::cin >> index) || (index < 0 || index > this->amount)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "# Invalid Index\n~";
