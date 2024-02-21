@@ -2,5 +2,5 @@
 
 int main()
 {
-    randomChump("saif");
+    randomChump("Zombisto");
 }
