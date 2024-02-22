@@ -18,23 +18,27 @@ std::string Contact::fields_name[5] = {
 };
 
 bool Contact::set_informations(int index) {
-	this->index = index;
+	this->index = index + 1;
 	for (int i = FirstName; i <= Secret; i++) {
 		std::cout << "# " << Contact::fields_name[i] << ":\n+";
 		std::getline(std::cin, this->informations[i]);
 		if (i == Phone) {
 			for (size_t j = 0; j < this->informations[i].length(); j++) {
 				if (!::isdigit(this->informations[i].at(j))) {
-					std::cout << "# Invalid phone number!" << std::endl;
+					std::cout << "# Invalid phone number! " << this->informations[i] << std::endl;
 					return (false);
 				}
 			}
 		}
 	}
-	size_t totalLength = 0;
-	for (int i = FirstName; i <= Secret; i++)
-		totalLength += this->informations[i].empty();
-	if (totalLength != 0) {
+	bool is_empty = false;
+	for (int i = FirstName; i <= Secret; i++) {
+		if (this->informations[i].empty()) {
+			is_empty = true;
+			break;
+		}
+	}
+	if (is_empty) {
 		std::cout << "# Empty contact!" << std::endl;
 		return (false);
 	}
@@ -44,7 +48,7 @@ bool Contact::set_informations(int index) {
 
 void Contact::display_header() {
 	std::cout << "|" << std::setw(10) << this->index;
-	for (int i = FirstName; i <= Nickname; i++) {
+	for (int i = FirstName; i < Phone; i++) {
 		std::cout << "|";
 		if (this->informations[i].length() > 10)
 			std::cout << this->informations[i].substr(0, 9) << ".";
