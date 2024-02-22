@@ -5,19 +5,20 @@
 # include <iomanip>
 # include <string>
 
+enum Field {
+    FirstName,
+    LastName,
+    Nickname,
+    Phone,
+    Secret
+};
+
 class Contact
 {
     private:
-        int					index;
         static std::string	fields_name[5];
         std::string			informations[5];
-        enum Field {
-            FirstName = 0,
-            LastName,
-            Nickname,
-            Phone,
-            Secret
-        };
+        int					index;
     public:
         Contact();
         ~Contact();

@@ -22,11 +22,19 @@ bool Contact::set_informations(int index) {
 	for (int i = FirstName; i <= Secret; i++) {
 		std::cout << "# " << Contact::fields_name[i] << ":\n+";
 		std::getline(std::cin, this->informations[i]);
+		if (i == Phone) {
+			for (size_t j = 0; j < this->informations[i].length(); j++) {
+				if (!::isdigit(this->informations[i].at(j))) {
+					std::cout << "# Invalid phone number!" << std::endl;
+					return (false);
+				}
+			}
+		}
 	}
 	size_t totalLength = 0;
 	for (int i = FirstName; i <= Secret; i++)
-		totalLength += this->informations[i].length();
-	if (totalLength == 0) {
+		totalLength += this->informations[i].empty();
+	if (totalLength != 0) {
 		std::cout << "# Empty contact!" << std::endl;
 		return (false);
 	}

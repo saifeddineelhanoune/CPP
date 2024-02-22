@@ -1,7 +1,7 @@
 #include "PhoneBook.hpp"
 
 int main(void) {
-	PhoneBook annuaire;
+	PhoneBook phone;
 	bool run;
 	std::string command;
 
@@ -9,13 +9,13 @@ int main(void) {
 	run = true;
 	while (run && std::cin.good()) // std::cin.good() is a way to check if the input is still valid
 	{
-		annuaire.show_startup();
+		phone.show_startup();
 		std::cout << ">";
 		std::getline(std::cin, command);
 		if (command == "ADD")
-			(annuaire.add_contact(), system("clear"));
+			(phone.add_contact(), std::cin.clear());
 		else if (command == "SEARCH")
-			annuaire.search_contact();
+			phone.search_contact();
 		else if (command == "EXIT")
 		{
 			system("clear");
