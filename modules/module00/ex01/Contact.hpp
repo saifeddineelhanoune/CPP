@@ -20,7 +20,7 @@ class Contact
         };
     public:
         Contact();
-        virtual ~Contact();
+        ~Contact();
 
         bool	set_informations(int index);
         void	display_header(void);
