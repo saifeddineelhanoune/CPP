@@ -13,8 +13,6 @@ class Zombie
         Zombie(std::string name);
         ~Zombie();
         void announce();
-        void setName(std::string name);
-        void setType(std::string type);
 };
 
 Zombie* newZombie( std::string name );
