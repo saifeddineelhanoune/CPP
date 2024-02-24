@@ -11,6 +11,6 @@ $(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $(NAME)
 clean:
 	rm -rf $(OBJ)
-fclean:
+fclean: clean
 	rm -rf $(NAME)
 re: clean fclean all
