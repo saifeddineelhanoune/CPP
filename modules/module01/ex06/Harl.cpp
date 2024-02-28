@@ -23,11 +23,11 @@ void    Harl::error() {
 int     search(std::string level) {
     int i = 0;
     std::string flags[4] = {DEBUG, INFO, WARNING, ERROR};
-    do {
+    while(flags[i] != level) {
         if (i > 3)
-            return 0;
+            return -1;
         i++;
-    } while(flags[i] != level);
+    }
     return i;
 }
 
@@ -42,13 +42,10 @@ void    Harl::complain(std::string level) {
     switch (i) {
         case 0:
             (this->*ptr[0])();
-            break;
         case 1:
             (this->*ptr[1])();
-            break;
         case 2:
             (this->*ptr[2])();
-            break;
         case 3:
             (this->*ptr[3])();
             break;

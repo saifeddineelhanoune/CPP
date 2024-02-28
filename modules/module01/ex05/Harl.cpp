@@ -23,11 +23,11 @@ void    Harl::error() {
 int     search(std::string level) {
     int i = 0;
     std::string flags[4] = {DEBUG, INFO, WARNING, ERROR};
-    do {
+    while(flags[i] != level) {
         if (i > 3)
-            return 0;
+            return -1;
         i++;
-    } while(flags[i] != level);
+    }
     return i;
 }
 
