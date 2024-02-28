@@ -8,18 +8,14 @@ int replace(char **av)
 	std::string out_filename = in_filename + ".replace";
 	std::string s1 = av[2];
 	std::string s2 = av[3];
-	if (!in_filename.empty())
-	{
+	if (!in_filename.empty()) {
 		std::ifstream infile(in_filename);
 		std::ofstream outfile(out_filename);
 		std::string content;
-		if (infile.is_open() && outfile.is_open())
-		{
-			while (std::getline(infile, content))
-			{
+		if (infile.is_open() && outfile.is_open()) {
+			while (std::getline(infile, content)) {
 				int i = content.find(s1);
-				while (i != -1)
-				{
+				while (i != -1) {
 					content.erase(i, s1.length());
 					content.insert(i, s2);
 					i = content.find(s1, i + s2.length());
@@ -28,15 +24,11 @@ int replace(char **av)
 			}
 			infile.close();
 			outfile.close();
-		}
-		else
-		{
+		} else {
 			std::cerr << "Faild to open infile" << std::endl;
 			return (1);
 		}
-	}
-	else
-	{
+	} else {
 		std::cerr << "Invalid filename" << std::endl;
 		return (1);
 	}
@@ -45,8 +37,7 @@ int replace(char **av)
 
 int main(int ac, char **av)
 {
-	if (ac != 4)
-	{
+	if (ac != 4) {
 		std::cerr << "Invalid number of argements!" << std::endl;
 		return (1);
 	}
