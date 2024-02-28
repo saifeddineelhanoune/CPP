@@ -3,11 +3,17 @@
 
 #include <iostream>
 
-#define DEBUG "debug"
-#define INFO "info"
-#define WARNING "warning"
-#define ERROR "error"
+#define DEBUG "DEBUG"
+#define INFO "INFO"
+#define WARNING "WARNING"
+#define ERROR "ERROR"
 
+enum numeration {
+    d = 1,
+    i,
+    w,
+    e
+};
 
 class Harl {
     private:

@@ -39,10 +39,20 @@ void    Harl::complain(std::string level) {
         &Harl::warning,
         &Harl::error
     };
-    if (i == 0) {
-        std::cerr << "level not found" << std::endl;
-        return ;
-    } else {
-        (this->*ptr[i])();
+    switch (i) {
+        case 0:
+            (this->*ptr[0])();
+            break;
+        case 1:
+            (this->*ptr[1])();
+            break;
+        case 2:
+            (this->*ptr[2])();
+            break;
+        case 3:
+            (this->*ptr[3])();
+            break;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }
