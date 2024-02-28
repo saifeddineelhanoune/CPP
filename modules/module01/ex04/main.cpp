@@ -4,13 +4,13 @@
 
 int replace(char **av)
 {
-	std::string in_filename = av[1];
-	std::string out_filename = in_filename + ".replace";
+	std::string in = av[1];
+	std::string out = in + ".replace";
 	std::string s1 = av[2];
 	std::string s2 = av[3];
-	if (!in_filename.empty()) {
-		std::ifstream infile(in_filename);
-		std::ofstream outfile(out_filename);
+	if (!in.empty()) {
+		std::ifstream infile(in);
+		std::ofstream outfile(out);
 		std::string content;
 		if (infile.is_open() && outfile.is_open()) {
 			while (std::getline(infile, content)) {
