@@ -20,29 +20,25 @@ void    Harl::error() {
     std::cout << "Harl says: Error" << std::endl;
 }
 
-int     search(std::string level) {
+void    Harl::complain(std::string level) {
     int i = 0;
     std::string flags[4] = {DEBUG, INFO, WARNING, ERROR};
     while(flags[i] != level) {
-        if (i > 3)
-            return -1;
+        if (i > 3){
+            i = -1;
+            break;
+        }
         i++;
     }
-    return i;
-}
-
-void    Harl::complain(std::string level) {
-    int i = search(level);
     FuncPointer ptr[4] = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,
         &Harl::error
     };
-    if (i == 0) {
+    if (i == -1) {
         std::cerr << "level not found" << std::endl;
         return ;
-    } else {
-        (this->*ptr[i])();
     }
+    (this->*ptr[i])();
 }
