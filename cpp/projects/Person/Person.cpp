@@ -45,8 +45,8 @@ void        Person::setAge(int age) {
 void        Person::introduce(void) const {
     std::cout << "Hello my name is";
     std::cout << " " + fullName;
-    std::cout << " and i am";
-    std::cout << " " + age;
+    std::cout << " and i am ";
+    std::cout << age;
     std::cout << "years old" << std::endl;
 }
 

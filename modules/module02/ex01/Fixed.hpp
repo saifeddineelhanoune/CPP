@@ -9,7 +9,7 @@ class Fixed {
         static const int fractional = 8;
     public:
         Fixed();
-        Fixed(const Fixed &fixed);
+        Fixed(int const nb);
         ~Fixed();
         Fixed &operator=(const Fixed &fixed);
         int getRawBits(void) const;

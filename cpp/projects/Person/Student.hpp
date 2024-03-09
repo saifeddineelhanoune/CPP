@@ -9,12 +9,15 @@ class Student : public Person {
         std::string major;
 
     public:
-        Student(const std::string &fn, int age, const std::string &major);
-        std::string getMajor(void) const;
-        void setMajor(const std::string &major);
-        std::string getMajor(void) const;
-        void setMajor(const std::string &major);
-        void    introduce() const override;
+        Student();
+        Student(const std::string& n, int a, const std::string& m);
+        Student(const Student& s);
+        Student& operator=(const Student& s);
+
+        std::string getMajor() const;
+        void setMajor(const std::string& m);
+
+        void introduce() const;
         
 };
 
