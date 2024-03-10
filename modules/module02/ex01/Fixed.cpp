@@ -9,6 +9,11 @@ Fixed::Fixed(const Fixed &fixed) {
     *this = fixed;
 }
 
+Fixed::Fixed(const int nb) {
+    std::cout << "Param constructor called" << std::endl;
+    this->fixed = nb;
+}
+
 Fixed::~Fixed() {
     std::cout << "Destructor called" << std::endl;
 }
@@ -27,4 +32,13 @@ Fixed &Fixed::operator = (const Fixed& fixed) {
     std::cout << "Copy assignment operator called" << std::endl;
     this->fixed = fixed.getRawBits();
     return *this;
-} 
+}
+
+int     Fixed::toInt(void) const {
+    return this->fixed * 256;
+}
+
+float   Fixed::toFloat(void) const {
+    return this->fixed / 256;
+}
+
