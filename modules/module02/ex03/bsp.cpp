@@ -7,7 +7,6 @@ Fixed Area(Point const &a, Point const &b, Point const &c) {
     Fixed by = b.getY();
     Fixed cx = c.getX();
     Fixed cy = c.getY();
-
     return (ax * (by - cy) + bx * (cy - ay) + cx * (ay - by));
 }
 

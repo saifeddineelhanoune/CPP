@@ -27,7 +27,8 @@ void    Fixed::setRawBits(int const raw) {
 }
 
 Fixed &Fixed::operator=(const Fixed& fixed) {
-    this->fixed = fixed.getRawBits();
+	if (this != &fixed)
+    	this->fixed = fixed.getRawBits();
     return *this;
 }
 
@@ -88,7 +89,7 @@ Fixed Fixed::operator+(const Fixed& n) {
 
 Fixed Fixed::operator/(const Fixed& n) {
   return (
-    this->toFloat() / n.toFloat()
+    this->toFloat() / n.toFloat() > 0 ? this->toFloat() /n.toFloat() : 0
   );
 }
 
