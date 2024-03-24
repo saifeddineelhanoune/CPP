@@ -69,9 +69,9 @@ bool	Fixed::operator!=(Fixed const & r) {
 }
 
 Fixed Fixed::operator*(const Fixed& n) {
-  return (
-    this->toFloat() * n.toFloat()
-  );
+	return (
+		this->toFloat() * n.toFloat()
+	);
 }
 
 Fixed Fixed::operator-(const Fixed& n) {
@@ -81,15 +81,15 @@ Fixed Fixed::operator-(const Fixed& n) {
 }
 
 Fixed Fixed::operator+(const Fixed& n) {
-  return (
+  	return (
 		Fixed(this->getRawBits() + n.getRawBits())
-  );
+  	);
 }
 
 Fixed Fixed::operator/(const Fixed& n) {
-  return (
-    this->toFloat() / n.toFloat()
-  );
+	return (
+		this->toFloat() / n.toFloat()
+	);
 }
 
 Fixed	Fixed::operator++(int) {

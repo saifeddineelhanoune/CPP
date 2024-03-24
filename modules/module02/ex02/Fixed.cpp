@@ -40,7 +40,7 @@ int		Fixed::toInt( void ) const {
 	return (this->fixed >> Fixed::fractional);
 }
 
-std::ostream &operator<<( std::ostream& o, const Fixed& f){
+std::ostream &operator<<(std::ostream& o, const Fixed& f){
     o << f.toFloat();
     return (o);
 }
