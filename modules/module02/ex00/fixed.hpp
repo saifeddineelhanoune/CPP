@@ -6,7 +6,7 @@
 class Fixed {
     private:
         int fixed;
-        static const int fractional = 8;
+        static const int fractional;
     public:
         Fixed();
         Fixed(const Fixed &fixed);

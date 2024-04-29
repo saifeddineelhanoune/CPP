@@ -1,6 +1,9 @@
 #include "Fixed.hpp"
 
+static const int fractional = 8;
+
 Fixed::Fixed() : fixed(0) {
+	
 }
 
 Fixed::Fixed(const Fixed &fixed) {
