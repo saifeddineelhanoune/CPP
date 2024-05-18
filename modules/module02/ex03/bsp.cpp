@@ -1,4 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 15:27:37 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/04/30 15:27:38 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
+
+Fixed absolute(Fixed n){
+    if (n < 0)
+        return n * -1;
+    return n;
+}
 
 Fixed Area(Point const &a, Point const &b, Point const &c) {
     Fixed ax = a.getX();
@@ -7,7 +25,8 @@ Fixed Area(Point const &a, Point const &b, Point const &c) {
     Fixed by = b.getY();
     Fixed cx = c.getX();
     Fixed cy = c.getY();
-    return ((ax * (by - cy) + bx * (cy - ay) + cx * (ay - by)));
+
+    return (absolute(ax * (by - cy) + bx * (cy - ay) + cx * (ay - by)) * 0.5f);
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point) {

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 15:27:21 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/04/30 15:27:22 by sel-hano         ###   ########.fr       */
+/*   Created: 2024/05/18 23:13:08 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/05/19 00:03:02 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#pragma once
 
 #include <iostream>
 
-class Fixed {
-    private:
-        int _fixed;
-        static const int _fractional = 8;
+class ClapTrap {
+    std::string _name;
+    int _hitPoints;
+    int _energyPoints;
+    int _attackDamage;
+    
     public:
-        Fixed();
-        Fixed(const Fixed &fixed);
-        ~Fixed();
-        Fixed &operator=(const Fixed &fixed);
-        int getRawBits(void) const;
-        void    setRawBits(int const raw);
+        ClapTrap();
+        ClapTrap(const std::string& name);
+        ClapTrap(const ClapTrap& obj);
+        ClapTrap& operator=(const ClapTrap& obj);
+        void attack(const std::string& target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
+        ~ClapTrap();
 };
-
-
-#endif

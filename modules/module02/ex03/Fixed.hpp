@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 15:27:41 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/04/30 15:27:42 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
 #include <iostream>
@@ -6,8 +18,8 @@
 class Fixed
 {
     private:
-        int	fixed;
-        static int const fractional = 8;
+        int	_fixed;
+        static int const _fractional = 8;
 
     public:
         Fixed();

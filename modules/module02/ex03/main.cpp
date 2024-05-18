@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 15:27:44 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/04/30 15:27:45 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 
 int main() {
@@ -5,18 +17,10 @@ int main() {
     Point b(2, 1);
     Point c(1, 3);
     Point point(2, 2);
-    // bool res = bsp(a, b, c, point);
-    std::cout << a.getX() << std::endl;
-    std::cout << a.getY() << std::endl;
-    std::cout << b.getX() << std::endl;
-    std::cout << b.getY() << std::endl;
-    std::cout << c.getX() << std::endl;
-    std::cout << c.getY() << std::endl;
-    std::cout << point.getX() << std::endl;
-    std::cout << point.getY() << std::endl;
-    // if (!res)
-    //     std::cout << "out area of triangle " << std::endl;
-    // else
-    //     std::cout << "in area of triangle" << std::endl;
+    bool res = bsp(a, b, c, point);
+    if (!res)
+        std::cout << "out area of triangle" << std::endl;
+    else
+        std::cout << "in area of triangle" << std::endl;
     return 0;
 }
