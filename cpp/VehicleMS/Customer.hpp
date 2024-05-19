@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Vehicle.hpp"
 
 class Customer {
@@ -5,5 +7,5 @@ class Customer {
         string name, contact, rentalHistory, currentRentals;
 
     public:
-        Customer();
+        Customer(const Customer& obj);
 };

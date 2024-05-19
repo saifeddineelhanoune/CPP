@@ -1,6 +1,6 @@
+#pragma once
+
 #include "Vehicle.hpp"
-
-
 
 class RentalAgreement {
     private:
