@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 23:12:57 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/18 23:45:21 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:13:26 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ ClapTrap::ClapTrap(): _name(""), _hitPoints(0), _energyPoints(0), _attackDamage(
     std::cout << "Default Constructor Called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string &name): _name("Trap"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ClapTrap::ClapTrap(const std::string &name):  _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+    this->_name = name;
     std::cout << "Parameterized Constructor Called" << std::endl;
 }
 
