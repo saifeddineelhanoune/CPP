@@ -6,13 +6,14 @@
 /*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:18:35 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/04/30 15:18:36 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:42:25 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _fixed(0) {
+	
 }
 
 Fixed::Fixed(const Fixed &fixed) {
