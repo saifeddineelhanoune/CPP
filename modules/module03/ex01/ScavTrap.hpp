@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 20:36:57 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/22 20:42:50 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/22 20:55:47 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 class ScavTrap : public ClapTrap {
     public:
+        ScavTrap();
+        ScavTrap(const std::string& name);
+        ScavTrap(const ScavTrap& obj);
+        ScavTrap& operator=(const ScavTrap& obj);
+        void    attack(const std::string& target);
         void    guardGate();
+        ~ScavTrap();
 };
