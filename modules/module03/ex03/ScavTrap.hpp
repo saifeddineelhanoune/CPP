@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 20:36:57 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/23 00:37:42 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:19:51 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
     public:
         ScavTrap();
         ScavTrap(const std::string& name);

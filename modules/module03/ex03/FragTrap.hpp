@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:45:20 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/24 12:47:32 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:19:31 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
     public:
         FragTrap(void);
         FragTrap(std::string name);
