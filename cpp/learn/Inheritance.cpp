@@ -20,7 +20,7 @@ class Person {
         }
 };
 
-class Father : virtual public Person {
+class Father :  virtual public Person {
     public:
         Father(string first, string last,int age) : Person(first, last, age) {
             cout << "Father Constructor Called" << endl;

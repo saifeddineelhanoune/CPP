@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:45:26 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/24 12:47:20 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:39:11 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ FragTrap::FragTrap(void) {
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "FragTrap parameterized constructor called" << std::endl;
 	_hitPoints = 100;
-	_energyPoints = 100;
+	_energyPoints = 50;
 	_attackDamage = 30;
 }
 

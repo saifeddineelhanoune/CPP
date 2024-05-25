@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/24 16:28:37 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/05/24 16:39:39 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(void) {
     std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "Trap"), ScavTrap(name), FragTrap(name), __name(name) {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), FragTrap(name), __name(name) {
     std::cout << "DiamondTrap parameterized constructor called" << std::endl;
 	_hitPoints = this->FragTrap::_hitPoints;
 	_energyPoints = this->ScavTrap::_energyPoints;
@@ -30,6 +42,7 @@ DiamondTrap & DiamondTrap::operator=(DiamondTrap const & src) {
 void DiamondTrap::attack(std::string const & target) {
 	this->ScavTrap::attack(target);
 }
+
 
 void	DiamondTrap::whoAmI(void) {
 	std::cout << "DiamondTrap name is: " << this->DiamondTrap::__name << std::endl;

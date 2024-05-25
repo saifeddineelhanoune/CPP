@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/24 16:28:52 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/05/24 20:22:35 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 void    ScavTrap::guardGate() {
@@ -7,7 +19,7 @@ void    ScavTrap::guardGate() {
 void    ScavTrap::attack(const std::string& target) {
     if (_hitPoints > 0 && _energyPoints > 0) {
         _energyPoints--;
-        std::cout << "ScavTrap attacks " << target << " causing" << _attackDamage << " points of damage!" << std::endl;
+        std::cout << "ScavTrap attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl;
     }
 }
 

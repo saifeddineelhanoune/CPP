@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-hano <sel-hano@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 23:12:57 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/21 11:58:55 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:51:01 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name(""), _hitPoints(0), _energyPoints(0), _attackDamage(0) {
-    std::cout << "Default Constructor Called" << std::endl;
+ClapTrap::ClapTrap(): _name("ClapClap"), _hitPoints(0), _energyPoints(0), _attackDamage(0) {
+    std::cout << "ClapTrap Default Constructor Called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string &name):  _hitPoints(10), _energyPoints(10), _attackDamage(0) {
@@ -43,7 +43,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
 void ClapTrap::attack(const std::string& target) {
     if (_hitPoints > 0 && _energyPoints > 0) {
         _energyPoints--;
-        std::cout << "ClapTrap attacks " << target << " causing" << _attackDamage << " points of damage!" << std::endl;
+        std::cout << "ClapTrap attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl;
     }
 }
 
@@ -61,6 +61,39 @@ void ClapTrap::beRepaired(unsigned int amount){
         std::cout << _name << "Repairing and get " << amount << " point, the Energy points now is : " << _energyPoints << std::endl;
     }
 }
+
+int     ClapTrap::getHitPoints() const {
+    return _hitPoints;
+}
+
+std::string     ClapTrap::getName() const {
+    return _name;
+}
+
+int     ClapTrap::getEnergyPoints() const {
+    return _energyPoints;
+}
+
+int     ClapTrap::getAttackDamage() const {
+    return _hitPoints;
+}
+
+void    ClapTrap::setName(std::string name) {
+    _name = name;
+}
+
+void    ClapTrap::setHitPoints(int points) {
+    _hitPoints = points;
+}
+
+void    ClapTrap::setEnergyPoints(int points) {
+    _energyPoints = points;
+}
+
+void    ClapTrap::setAttackDamage(int damage) {
+    _attackDamage = damage;
+}
+
 
 ClapTrap ::~ClapTrap() {
     std::cout << "Destructor called " << std::endl;
