@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 17:49:29 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/26 17:59:12 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/26 18:01:26 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Dog& Dog::operator=(const Dog& dog) {
     if (this != &dog)
         *this = dog;
 }
+
 Dog::~Dog() {
     std::cout << "Dog Destructor Called" << std::endl;
 }
