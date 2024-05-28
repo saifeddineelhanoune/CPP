@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 17:45:34 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/28 17:20:33 by sel-hano         ###   ########.fr       */
+/*   Created: 2024/05/28 17:31:04 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/05/28 17:36:55 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Cat.hpp"
 
-#include "Animal.hpp"
+Cat::Cat() :  Animal("") {
+    std::cout << "Cat Default Constructor" << std::endl;
+}
 
-class Dog : public Animal {
-    public:
-        Dog();
-        Dog(const std::string& type);
-        Dog(const Dog& dog);
-        Dog& operator=(const Dog& animal);
-        void    makeSound() const override;
-        ~Dog() override;
-};
+Cat::Cat(const std::string& type) : Animal(type) {
+    std::cout << "Parametrized Constructor Called" << std::endl;
+}
+
+Cat::~Cat() { 
+    std::cout << "Cat Destructor" << std::endl; 
+}
+
+void Cat::makeSound() const {
+    std::cout << "Meow!" << std::endl;
+}

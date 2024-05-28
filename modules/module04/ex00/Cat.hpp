@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 17:45:34 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/28 17:20:33 by sel-hano         ###   ########.fr       */
+/*   Created: 2024/05/28 17:31:17 by sel-hano          #+#    #+#             */
+/*   Updated: 2024/05/28 17:34:00 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 #include "Animal.hpp"
 
-class Dog : public Animal {
+class Cat : public Animal {
     public:
-        Dog();
-        Dog(const std::string& type);
-        Dog(const Dog& dog);
-        Dog& operator=(const Dog& animal);
-        void    makeSound() const override;
-        ~Dog() override;
+        Cat();
+        Cat(const std::string& type);
+        Cat& operator=(const Cat& cat);
+        void makeSound() const override;
+        ~Cat() override;
 };
+
