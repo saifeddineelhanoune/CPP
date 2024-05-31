@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 23:46:01 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/25 19:21:35 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/05/28 20:50:10 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int main() {
     } else {
         std::cout << "Draw between ClapTrap " << claptrap1.getName() << " and ClapTrap " << claptrap2.getName() << "." << std::endl;
     }
-
     return 0;
 }
