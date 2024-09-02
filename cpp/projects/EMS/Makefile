@@ -2,7 +2,7 @@ NAME = LMS
 SRC = $(shell ls *.cpp)
 OBJ = $(SRC:.cpp=.o)
 HEADER = $(shell ls *.hpp)
-FLAGS = -Wall -Wextra -Werror -std=c++20
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
