@@ -1,29 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 17:31:04 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/05/28 17:36:55 by sel-hano         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Cat.hpp"
 
-Cat::Cat() :  Animal("") {
-    std::cout << "Cat Default Constructor" << std::endl;
+Cat::Cat() {
+    std::cout << "Default Cat Constructor called " << std::endl; 
+    type = "Cat";  
 }
 
-Cat::Cat(const std::string& type) : Animal(type) {
-    std::cout << "Parametrized Constructor Called" << std::endl;
+Cat::Cat(const Cat &obj) {
+    std::cout << "Copy Cat Constructor Called " << std::endl;
+    *this = obj;
 }
 
-Cat::~Cat() { 
-    std::cout << "Cat Destructor" << std::endl; 
+Cat::~Cat() {
+    std::cout << "Cat Destructor Called " << std::endl;
 }
 
-void Cat::makeSound() const {
-    std::cout << "Meow!" << std::endl;
+Cat &Cat::operator=(const Cat &obj) {
+    std::cout << "Cat Copy assignement operator called " << std::endl;
+    if (this != &obj)
+        this->type = obj.type;
+    return *this;
+}
+
+void Cat::makeSound( void ) const  {
+    std::cout << "meow meow" <<  std::endl;
 }

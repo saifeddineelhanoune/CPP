@@ -26,7 +26,7 @@ Animal& Animal::operator=(const Animal& other) {
     return *this;
 }
 
-void Animal::makeSound() const {
+std::string Animal::makeSound() const {
 	std::cout << "Animal make a generic sound" << std::endl;
 }
 
