@@ -24,3 +24,15 @@ Brain& Brain::operator=(const Brain& other) {
     }
     return *this;
 }
+
+
+void Brain::getIdeas() const{
+    for (int i = 0; i < 100; i++){
+        if (ideas[i] != "")
+            std::cout << ideas[i] << std::endl;
+    }
+}
+
+void Brain::setIdeas(const std::string& idea, int index){
+    ideas[index] = idea;
+}

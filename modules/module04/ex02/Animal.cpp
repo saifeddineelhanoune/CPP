@@ -1,34 +1,35 @@
 #include "Animal.hpp"
 
-// Default constructor
-Animal::Animal() : type("Animal") {
-    std::cout << "Animal default constructor called" << std::endl;
+Animal::Animal(const std::string& type) {
+	std::cout << "Parameterized constructor called" << std::endl;
+	this->type = type;
 }
 
-// Copy constructor
-Animal::Animal(const Animal& other) : type(other.type) {
-    std::cout << "Animal copy constructor called" << std::endl;
+Animal::Animal() {
+	std::cout << "Default constructor called" << std::endl;
 }
 
-// Copy assignment operator
+Animal::~Animal() {
+	std::cout << "Destructor called" << std::endl;
+}
+
+Animal::Animal(const Animal& other) {
+	std::cout << "Copy constructor called" << std::endl;
+	this->type = other.type;
+}
+
 Animal& Animal::operator=(const Animal& other) {
-    std::cout << "Animal copy assignment operator called" << std::endl;
-    if (this != &other) {
-        type = other.type;
+	if (this != &other) {
+        this->type = other.type;
+        std::cout << "Copy assignment operator called" << std::endl;
     }
     return *this;
 }
 
-// Virtual destructor
-Animal::~Animal() {
-    std::cout << "Animal destructor called" << std::endl;
-}
-
-// Accessors
 std::string Animal::getType() const {
-    return type;
+    return this->type;
 }
 
 void Animal::setType(const std::string& type) {
-    this->type = type;
+	this->type = type;
 }

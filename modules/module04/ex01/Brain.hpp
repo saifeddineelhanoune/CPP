@@ -9,8 +9,8 @@ class Brain {
 	public:
 		Brain();
 		Brain(const Brain& other);
-		std::string getIdeas() const;
-		void setIdeas(const std::string& ) const;
+		void getIdeas() const;
+		void setIdeas(const std::string& idea, int index);
 		~Brain();
 		Brain& operator=(const Brain& other);
 };

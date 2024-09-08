@@ -4,12 +4,14 @@
 #include <string>
 
 class Brain {
-	public:
+	private:
 		std::string ideas[100];
-
+	public:
 		Brain();
-		Brain(const Brain& other);  // Copy constructor
+		Brain(const Brain& other);
+		void getIdeas() const;
+		void setIdeas(const std::string& idea, int index);
 		~Brain();
-		Brain& operator=(const Brain& other);  // Assignment operator
+		Brain& operator=(const Brain& other);
 };
 

@@ -14,8 +14,8 @@ Animal::~Animal() {
 }
 
 Animal::Animal(const Animal& other) {
-	this->type = other.type;
 	std::cout << "Copy constructor called" << std::endl;
+	this->type = other.type;
 }
 
 Animal& Animal::operator=(const Animal& other) {
@@ -26,7 +26,7 @@ Animal& Animal::operator=(const Animal& other) {
     return *this;
 }
 
-std::string Animal::makeSound() const {
+void Animal::makeSound() const {
 	std::cout << "Animal make a generic sound" << std::endl;
 }
 

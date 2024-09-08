@@ -20,13 +20,19 @@ int main() {
     delete cat;
 
     // Test deep copy
-    Dog dog1;
-    Dog dog2 = dog1;  // Test copy constructor
-    dog2 = dog1;  // Test assignment operator
+    Cat* cat1 = new Cat();
+    cat1->setIdeas("test", 1);
+    Cat* cat2 = new Cat(*cat1);
+    delete cat1;
+    cat2->getIdeas();
 
-    Cat cat1;
-    Cat cat2 = cat1;  // Test copy constructor
-    cat2 = cat1;  // Test assignment operator
+    std::cout << "-----------------\n";
+
+    Dog* dog1 = new Dog();
+    dog1->setIdeas("test2", 1);
+    Dog* dog2 = new Dog(*dog1);
+    delete dog1;
+    dog2->getIdeas();
 
     // Test array of Animals
     const int N = 4;

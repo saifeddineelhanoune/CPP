@@ -12,6 +12,8 @@ public:
     Dog(const Dog& other);  // Copy constructor
     ~Dog();
     Dog& operator=(const Dog& other);  // Assignment operator
-    void makeSound() const override;
+    void makeSound() const;
+	void getIdeas() const;
+	void setIdeas(const std::string& idea, int index);
 };
 
