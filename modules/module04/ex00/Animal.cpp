@@ -5,12 +5,12 @@ Animal::Animal(const std::string& type) {
 	this->type = type;
 }
 
-Animal::Animal() {
-	std::cout << "Default constructor called" << std::endl;
+Animal::Animal() : type("Animal") {
+	std::cout << "Animal Default constructor called" << std::endl;
 }
 
 Animal::~Animal() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 Animal::Animal(const Animal& other) {
@@ -27,7 +27,7 @@ Animal& Animal::operator=(const Animal& other) {
 }
 
 void Animal::makeSound() const {
-	std::cout << "Animal make a generic sound" << std::endl;
+	std::cout << "Animal sound" << std::endl;
 }
 
 std::string Animal::getType() const {
