@@ -25,6 +25,7 @@ int main() {
     Cat* cat2 = new Cat(*cat1);
     delete cat1;
     cat2->getIdeas();
+    delete cat2;
 
     std::cout << "-----------------\n";
 
@@ -33,6 +34,8 @@ int main() {
     Dog* dog2 = new Dog(*dog1);
     delete dog1;
     dog2->getIdeas();
+    delete dog2;
+
 
     // Test array of Animals
     const int N = 4;
