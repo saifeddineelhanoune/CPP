@@ -7,9 +7,9 @@ Bureaucrat::Bureaucrat() : _name(""), _grade(0) {
 Bureaucrat::Bureaucrat(const std::string& name, short grade) : _name(name), _grade(grade) {
     std::cout << "Copy constructor called" << std::endl;
     if (grade > 150)
-        throw GradeTooHighException();
-    else if (grade < 1)
         throw GradeTooLowException();
+    else if (grade < 1)
+        throw GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& b) : _name(b._name), _grade(b._grade) {
@@ -30,4 +30,24 @@ short   Bureaucrat::getGrade() const {
 
 std::string     Bureaucrat::getName() const {
     return _name;
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+    return "Grade Too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+    return "Grade Too low";
+}
+
+void    Bureaucrat::increment() {
+    if (_grade <= 1)
+        throw GradeTooHighException();
+    _grade--;
+}
+
+void    Bureaucrat::decrement() {
+    if (_grade >= 150)
+        throw GradeTooLowException();
+    _grade--;
 }
