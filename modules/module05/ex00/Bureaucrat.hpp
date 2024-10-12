@@ -6,8 +6,8 @@
 
 class Bureaucrat {
     private:
-        const std::string name;
-        int grade;
+        const   std::string name;
+        int     grade;
     public:
         class GradeTooHighException : public std::exception {
             public:
@@ -29,6 +29,10 @@ class Bureaucrat {
         // Methods to modify the grade
         void incrementGrade();
         void decrementGrade();
+
+        //Overload of the assignement operator
+        Bureaucrat& operator=(const Bureaucrat& b);
+
         //Destructor
         ~Bureaucrat();
 };

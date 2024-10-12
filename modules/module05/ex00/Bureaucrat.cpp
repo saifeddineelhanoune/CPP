@@ -35,10 +35,17 @@ void Bureaucrat::decrementGrade() {
     grade++;
 }
 
-// Overload of the stream<< operator
+// Overload of the stream<< operator and asignement= operator
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b) {
     out << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
     return out;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) {
+    if (this != &b) {
+        this->grade = b.grade;
+    }
+    return *this;
 }
 
 //exception handling functions
