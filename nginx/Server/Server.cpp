@@ -32,7 +32,7 @@ void    Server::acceptClients() {
             else
                 throw std::runtime_error("Error accepting client connection.");
         } else {
-            _clients.push_back(new Client(clientSock, clientAddr));
+            _clients.push_back(new Client());
             std::cout << "Client connected." << std::endl;
         }
     }

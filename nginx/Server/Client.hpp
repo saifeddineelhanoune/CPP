@@ -8,7 +8,7 @@ class Client : public Connection {
         struct sockaddr_in _clientAddr;
 //Constructors
         Client();
-        Client(struct sockaddr_in clientAddr, struct sockaddr_in clientAddr);
+        Client(struct sockaddr_in clientAddr);
         Client(const Client& obj);
 //Operators Overload
         Client& operator=(const Client& obj);
