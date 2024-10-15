@@ -8,11 +8,11 @@ class Client : public Connection {
         struct sockaddr_in _clientAddr;
 //Constructors
         Client();
-        Client(struct sockaddr_in clientAddr);
+        Client(int clientSocket, struct sockaddr_in addr);
         Client(const Client& obj);
 //Operators Overload
         Client& operator=(const Client& obj);
-        friend std::ostream& operator<<(std::ostream& out, const Client &obj);
+        // friend std::ostream& operator<<(std::ostream& out, const Client &obj);
 //Methods
         std::string     readRequest();
         void            sendResponse(const std::string &response);

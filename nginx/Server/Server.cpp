@@ -38,3 +38,38 @@ void    Server::acceptClients() {
     }
 }
 
+void    Server::handleClients() {
+        for (std::vector<Client*>::iterator it = _clients.begin(); it != _clients.end();) {
+        Client* client = *it;
+        std::string request = client->readRequest();
+
+        if (request == "disconnect" || request == "error") {
+            delete client;
+            it = _clients.erase(it);
+        } else if (!request.empty()) {
+            std::cout << "Received: " << request << "\n";
+            client->sendResponse("HTTP/1.1 200 OK\r\nContent-Length: 13\r\n\r\nHello, World!");
+            it++;
+        } else {
+            it++;
+        }
+    }
+}
+
+void    Server::run() {
+    while (true) {
+        acceptClients();
+        handleClients();
+        usleep(1000); //prevent CPU Overload
+    }
+}
+
+Server::~Server() {
+    for (int i = 0; i < _clients.size(); i++)
+        delete _clients[i];
+    std::cout << "Server shutting down." << std::endl;
+}
+
+std::ostream& operator<<(std::ostream& out, const Server& obj) {
+    out << "Server Details" << std::endl;
+}
