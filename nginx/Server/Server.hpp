@@ -16,7 +16,7 @@ class Server : public Connection {
         Server& operator=(const Server& obj);
         friend std::ostream& operator<< (std::ostream &out, const Server& obj);
 //Methods
-        void    acceptClients();
+        Client*    acceptClients();
         void    handleClients();
         void    run();
 //Destructor

@@ -21,7 +21,7 @@ Server::Server(int port) {
     std::cout << "server started on port :" << port << std::endl;
 }
 
-void    Server::acceptClients() {
+Client*    Server::acceptClients() {
     while (true) {
         struct sockaddr_in clientAddr;
         socklen_t clientLen = sizeof(clientAddr);
@@ -72,4 +72,5 @@ Server::~Server() {
 
 std::ostream& operator<<(std::ostream& out, const Server& obj) {
     out << "Server Details" << std::endl;
+    return out;
 }
