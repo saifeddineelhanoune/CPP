@@ -3,10 +3,10 @@
 
 class Form {
     private:
-        const       std::string name;
-        const       int         gradeSign;
-        const       int         gradeExec;
-        bool                    isSigned;
+        const       std::string _name;
+        const       int         _gradeSign;
+        const       int         _gradeExec;
+        bool                    _isSigned;
     public:
     //Exception definition
         class GradeTooHighException : std::exception {
