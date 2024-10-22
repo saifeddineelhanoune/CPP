@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Bureaucrat.hpp"
 
 class Form {
@@ -15,8 +16,10 @@ class Form {
         class GradeTooLowException : std::exception {
             virtual const char* what() const throw();
         };
+        class FormAlreadySigned : std::exception {
+            virtual const char* what() const throw();
+        };
     //Constructors
-        Form();
         Form(const std::string &name, int sign, int exec, bool isSigned);
         Form(const Form& f);
     //Overload of the assignement= operator
@@ -28,7 +31,7 @@ class Form {
         bool        getIsSigned() const;
     //member functions
         void    beSigned(Bureaucrat& b);
-        void    signForm();
+        void    signForm(Bureaucrat& b, Form &f);
     //Destructor
         ~Form();
 };
