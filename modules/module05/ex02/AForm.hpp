@@ -24,7 +24,7 @@ class AForm {
         };
     //Constructors
         AForm();
-        AForm(const std::string &name, int sign, int exec, bool isSigned);
+        AForm(const std::string &name, int sign, int exec);
         AForm(const AForm& f);
     //Overload of the assignement= operator
         AForm&   operator=(const AForm& f);
