@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:16:11 by sel-hano          #+#    #+#             */
-/*   Updated: 2024/10/30 17:16:11 by sel-hano         ###   ########.fr       */
+/*   Updated: 2024/11/11 13:17:57 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ class ScalarConverter {
             INT,
             FLOAT,
             DOUBLE,
-            SPECIAL
+            SPECIAL,
+            VALID,
+            INVALID
         };
     public:
         ScalarConverter();
@@ -30,7 +32,7 @@ class ScalarConverter {
         ScalarConverter(const ScalarConverter &scalar);
         ScalarConverter &operator=(ScalarConverter const &obj);
         static void convert();
-        static void identify(std::string &input);
+        static types identify(const std::string &input);
         ~ScalarConverter();
 };
 

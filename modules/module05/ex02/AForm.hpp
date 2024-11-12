@@ -23,6 +23,7 @@ class AForm {
             virtual const char* what() const throw();
         };
     //Constructors
+        AForm();
         AForm(const std::string &name, int sign, int exec, bool isSigned);
         AForm(const AForm& f);
     //Overload of the assignement= operator
