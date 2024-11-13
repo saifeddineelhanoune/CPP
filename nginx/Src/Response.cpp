@@ -20,6 +20,16 @@ void    Response::setBody(const string &content) {
     headers["Content-Length"] = to_string(content.length());
 }
 
+string  Response::toString() const {
+    string res = "Webserv/1.0" + to_string(statusCode) + " " + statusMessage + "\r\n";
+    for (std::map<std::string, std::string>::const_iterator it = headers.begin(); 
+        it != headers.end(); ++it) {
+        res += it->first + ": " + it->second + "\r\n";
+    }
+    res += "\r\n" + body;
+    return res;
+}
+
 // string  Response::getDateTime() {
 //     char buffer[128];
 //     time_t now = time(0);

@@ -22,5 +22,6 @@ class Server {
         Server(int port, const string &root);
         string  readFile(const string &filename);
         Response handleReq(const Request& req);
+        void    start();
         ~Server();
 };

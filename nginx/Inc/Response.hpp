@@ -10,8 +10,8 @@ class Response {
         string  statusMessage;
         map<string, string> headers;
         string  body;
-
     public:
+        Response();
         Response(int code, const string &message);
         void    setStatus(int code, const string &message);
         void    setHeader(const string &key, const string &value);

@@ -27,11 +27,26 @@ string  Server::readFile(const string &filename) {
 
 Response Server::handleReq(const Request& req) {
     Response response;
+    string   path, content;
 
     if (req.getMethod() != "GET") {
         response.setStatus(405, "Method Not Allowed");
-        response.setBody("../www/405.html");
+        response.setBody("Only GET method is supported");
         return response;
     }
+    path = req.getPath();
+    if (path == "/") path = "/index.html";
+    content = readFile(path);
+    if (content.empty()) {
+        response.setStatus(404, "Not Found");
+        response.setBody(content);
+    }
+    return response;
+}
+
+void    Server::start() {
+    if (listen(serverFd, 3) < 0)
+        throw runtime_error("listen Failed");
+    cout << "Server listening on port" << port << endl;
 }
 
