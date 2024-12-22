@@ -35,6 +35,9 @@ class Bureaucrat {
 
         //Destructor
         ~Bureaucrat();
+        //members
+    private:
+        void    checkGrade(int grade) const;
 };
 // Overload of the output operator
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b);

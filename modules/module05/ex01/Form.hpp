@@ -32,6 +32,8 @@ class Form {
     //member functions
         void    beSigned(Bureaucrat& b);
         void    signForm(Bureaucrat& b, Form &f);
+    //Abstarct handler
+    virtual void    execute(Bureaucrat const & executor) const = 0;
     //Destructor
         ~Form();
 };
