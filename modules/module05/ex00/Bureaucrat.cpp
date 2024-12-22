@@ -4,7 +4,7 @@
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name) {
     std::cout << "Parametrized constructor called" << std::endl;
     checkGrade(grade);
-    grade = grade;
+    this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat() : name(""), grade(0) {
@@ -13,22 +13,22 @@ Bureaucrat::Bureaucrat() : name(""), grade(0) {
 
 // Getters
 const std::string& Bureaucrat::getName() const {
-    return name;
+    return this->name;
 }
 
 int Bureaucrat::getGrade() const {
-    return grade;
+    return this->grade;
 }
 
 // Grade modification methods
 void Bureaucrat::incrementGrade() {
-    checkGrade(this->grade);
     this->grade--;
+    checkGrade(this->grade);
 }
 
 void Bureaucrat::decrementGrade() {
-    checkGrade(this->grade);
     this->grade++;
+    checkGrade(this->grade);
 }
 
 // Overload of the stream<< operator and asignement= operator
