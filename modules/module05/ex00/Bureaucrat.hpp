@@ -22,9 +22,11 @@ class Bureaucrat {
         Bureaucrat(const Bureaucrat& b);
         Bureaucrat(const std::string &name, int grade);
 
-        // Getters
+        // Accessors
         const std::string& getName() const;
         int getGrade() const;
+        void    setGrade(int grade);
+        void    setName(const std::string& name);
 
         // Methods to modify the grade
         void incrementGrade();
