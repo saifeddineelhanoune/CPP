@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Intern
 SRC = $(shell ls *.cpp)
 OBJ = $(SRC:.cpp=.o)
 FLAGS =  -std=c++98
