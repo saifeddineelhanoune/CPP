@@ -25,15 +25,12 @@ class Form {
     //Overload of the assignement= operator
         Form&   operator=(const Form& f);
     //Accessors
-        std::string getName() const;
+        const std::string& getName() const;
         int         getGradeSign() const;
         int         getGradeExec() const;
         bool        getIsSigned() const;
     //member functions
-        void    beSigned(Bureaucrat& b);
-        void    signForm(Bureaucrat& b, Form &f);
-    //Abstarct handler
-    virtual void    execute(Bureaucrat const & executor) const = 0;
+        void    beSigned(const Bureaucrat& b);
     //Destructor
         ~Form();
 };

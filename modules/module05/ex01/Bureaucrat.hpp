@@ -3,6 +3,9 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
     private:
@@ -22,9 +25,11 @@ class Bureaucrat {
         Bureaucrat(const Bureaucrat& b);
         Bureaucrat(const std::string &name, int grade);
 
-        // Getters
+        // Accessors
         const std::string& getName() const;
         int getGrade() const;
+        void    setGrade(int grade);
+        void    setName(const std::string& name);
 
         // Methods to modify the grade
         void incrementGrade();
@@ -35,6 +40,10 @@ class Bureaucrat {
 
         //Destructor
         ~Bureaucrat();
+        //members
+        void    signForm(Form &form);
+    private:
+        void    checkGrade(int grade) const;
 };
 // Overload of the output operator
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b);

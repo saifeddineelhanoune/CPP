@@ -20,11 +20,11 @@ _isSigned(obj.getIsSigned()) {
 Form&   Form::operator=(const Form& obj) {
     std::cout << "Copy assignement called" << std::endl;
     if (this != &obj)
-        *this = obj;
+        _isSigned = obj._isSigned;
     return *this;
 }
 
-std::string Form::getName() const {
+const std::string& Form::getName() const {
     return _name;
 }
 
@@ -40,28 +40,17 @@ bool    Form::getIsSigned() const {
     return _isSigned;
 }
 
-void    Form::beSigned(Bureaucrat& b) {
-    if (_isSigned)
-        throw std::logic_error("Bureaucrat already signed");
-    if (_gradeSign < b.getGrade())
-        throw Form::GradeTooLowException();
+void    Form::beSigned(const Bureaucrat& bureaucrat) {
+    if (bureaucrat.getGrade() > _gradeSign)
+        throw GradeTooLowException();
     _isSigned = true;
-}
-
-void    Form::signForm(Bureaucrat &b, Form &f) {
-    try {
-        f.beSigned(b);
-        std::cout << "bureaucrat: " << b.getName() << " Signed Form" << std::endl;
-    } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
 }
 
 std::ostream&   operator<<(std::ostream& out, const Form& f) {
     out << "Form name: " << f.getName() << std::endl;
     out << "Form Sign Grade:" << f.getGradeSign() << std::endl;
     out << "Form Exec Grade:" << f.getGradeExec() << std::endl;
-    out << "Form Is Signed:" << f.getIsSigned() << std::endl;
+    out << "Form Is Signed:" << (f.getIsSigned() ? "yes" : "no") << std::endl;
     return out;
 }
 
