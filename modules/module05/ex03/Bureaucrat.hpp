@@ -3,9 +3,6 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
-#include "AForm.hpp"
-
-class AForm;
 
 class Bureaucrat {
     private:
@@ -29,7 +26,6 @@ class Bureaucrat {
         const std::string& getName() const;
         int getGrade() const;
         void    setGrade(int grade);
-        void    setName(const std::string& name);
 
         // Methods to modify the grade
         void incrementGrade();
@@ -41,7 +37,6 @@ class Bureaucrat {
         //Destructor
         ~Bureaucrat();
         //members
-        void    signForm(AForm &form);
     private:
         void    checkGrade(int grade) const;
 };

@@ -13,22 +13,30 @@ Bureaucrat::Bureaucrat() : name(""), grade(0) {
 
 // Getters
 const std::string& Bureaucrat::getName() const {
-    return this->name;
+    return name;
 }
 
 int Bureaucrat::getGrade() const {
-    return this->grade;
+    return grade;
 }
 
 // Grade modification methods
 void Bureaucrat::incrementGrade() {
-    this->grade--;
-    checkGrade(this->grade);
+    grade--;
+    checkGrade(grade);
 }
 
 void Bureaucrat::decrementGrade() {
-    this->grade++;
-    checkGrade(this->grade);
+    grade++;
+    checkGrade(grade);
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& b) {
+    grade = b.grade;
+}
+
+void    Bureaucrat::setGrade(int grade) {
+    this->grade = grade;
 }
 
 // Overload of the stream<< operator and asignement= operator
@@ -39,7 +47,7 @@ std::ostream& operator<<(std::ostream &out, const Bureaucrat &b) {
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) {
     if (this != &b)
-        this->grade = b.grade;
+        grade = b.grade;
     return *this;
 }
 
@@ -62,14 +70,4 @@ void    Bureaucrat::checkGrade(int grade) const {
         throw GradeTooHighException();
     if (grade > 150)
         throw GradeTooLowException();
-}
-
-void Bureaucrat::signForm(Form& form) {
-    try {
-        form.beSigned(*this);
-        std::cout << name << " signed " << form.getName() << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << name << " couldn't sign " << form.getName() 
-                 << " because " << e.what() << std::endl;
-    }
 }
