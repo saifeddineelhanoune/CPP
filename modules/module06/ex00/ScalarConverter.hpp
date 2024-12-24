@@ -12,27 +12,36 @@
 
 #pragma once
 
-#include <iosteam>
+#include <iostream>
 #include <string>
+#include <cstdlib>
+#include <limits>
+#include <cmath>
 
 class ScalarConverter {
     private:
-        enum types {
-            CHAR,
-            INT,
-            FLOAT,
-            DOUBLE,
-            SPECIAL,
-            VALID,
-            INVALID
+        ScalarConverter();
+        struct ConversionData {
+            double value;
+            bool isNan;
+            bool isInf;
+            bool isImpossible;
+            std::string literal;
+            ConversionData();
         };
+
+        static bool isNan(double value);
+        static bool isInf(double value);
+        static void handleSpecialCases(ConversionData& data);
+        static void handleChar(ConversionData& data);
+        static void handleInt(ConversionData& data);
+        static void handleFloat(ConversionData& data);
+        static void handleDouble(ConversionData& data);
     public:
         ScalarConverter();
-        ScalarConverter(const types &t);
         ScalarConverter(const ScalarConverter &scalar);
         ScalarConverter &operator=(ScalarConverter const &obj);
-        static void convert();
-        static types identify(const std::string &input);
+        static void convert(const std::string &literal);
         ~ScalarConverter();
 };
 

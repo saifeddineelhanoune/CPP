@@ -20,15 +20,26 @@ ScalarConverter::~ScalarConverter() {
     std::cout << "ScalarConverter Destructor Called" << std::endl;
 }
 
-void    ScalarConverter::identify(const std::string &input) {
-    if ((input == "nan" || input == "nanf" \
-    || input == "+inf" || input == "+inff" \
-    || input == "-inf" || input == "-inff" \
-    || input == "inf" || input == "inff"))
-        return SPECIAL;
-    else if (input.length() == 1 && !isdigit(input.at(0)))
-        return CHAR;
-    for (unsigned int i = 0; i < input.length(); i++) {
-        
-    }
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& converter) {
+    if (this != &converter)
+        *this = converter;
+    return *this;
+}
+
+bool    ScalarConverter::isNan(double value) {
+    return value != value;
+}
+
+bool    ScalarConverter::isNan(double value) {
+    return value == std::numeric_limits<double>::infinity() ||
+    value == -std::numeric_limits<double>::infinity();
+}
+
+void    ScalarConverter::convert(const std::string &literal) {
+    
+}
+
+bool ScalarConverter::isInf(double value) {
+    return value == std::numeric_limits<double>::infinity() ||
+    value == -std::numeric_limits<double>::infinity();
 }

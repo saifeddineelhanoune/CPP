@@ -1,6 +1,11 @@
 #pragma once
 
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+class AForm;
 
 class Intern {
     private:
@@ -9,9 +14,9 @@ class Intern {
             std::string formName;
             AForm*  (*createFunction)(const std::string&);
         };
-        static AForm* makeShrubberyCreationForm(const std::string& target);
-        static AForm* makePresidentialPardonForm(const std::string& target); 
-        static AForm* makeRobotomyRequestForm(const std::string& target);
+        static AForm* createShrubberyForm(const std::string& target);
+        static AForm* createPresidentialForm(const std::string& target); 
+        static AForm* createRobotomyForm(const std::string& target);
 
         static const FormCreator formCreators[];
     public:
@@ -23,5 +28,5 @@ class Intern {
         class   UnkownFormException : public std::exception {
             public:
                 virtual const char* what() const throw();
-        }
+        };
 };
