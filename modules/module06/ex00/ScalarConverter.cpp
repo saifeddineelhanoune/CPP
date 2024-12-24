@@ -13,7 +13,7 @@
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter() {
-    std::cout << "ScalarConverter Default constructor called" std::endl;
+    std::cout << "ScalarConverter Default constructor called" << std::endl;
 }
 
 ScalarConverter::~ScalarConverter() {
