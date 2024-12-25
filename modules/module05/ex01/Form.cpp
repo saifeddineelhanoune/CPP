@@ -1,7 +1,7 @@
 #include "Form.hpp"
 
-Form::Form(const std::string &name, int sign, int exec, bool isSigned) : \
-_name(name), _gradeExec(exec), _gradeSign(sign), _isSigned(isSigned) {
+Form::Form(const std::string &name, int sign, int exec) : \
+_name(name), _gradeExec(exec), _gradeSign(sign) {
     std::cout << "Form Param constructor called" << std::endl;
     if (_gradeSign < 1 || _gradeExec < 1)
         throw Form::GradeTooHighException();

@@ -20,7 +20,7 @@ class Form {
             virtual const char* what() const throw();
         };
     //Constructors
-        Form(const std::string &name, int sign, int exec, bool isSigned);
+        Form(const std::string &name, int sign, int exec);
         Form(const Form& f);
     //Overload of the assignement= operator
         Form&   operator=(const Form& f);
