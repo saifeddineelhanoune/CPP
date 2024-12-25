@@ -35,6 +35,15 @@ Bureaucrat::Bureaucrat(const Bureaucrat& b) {
     grade = b.grade;
 }
 
+void    Bureaucrat::signForm(Form& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << this->name << " Signed " << form.getName() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << this->name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
 void    Bureaucrat::setGrade(int grade) {
     this->grade = grade;
 }

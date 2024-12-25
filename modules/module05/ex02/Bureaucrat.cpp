@@ -51,6 +51,15 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) {
     return *this;
 }
 
+void    Bureaucrat::executeForm(AForm const &form) {
+    try {
+        form.execute(*this);
+        std::cout << this->name << " " << "executed " << form.getName() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Because: " << e.what() << std::endl;
+    }
+}
+
 //exception handling functions
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade is too high";

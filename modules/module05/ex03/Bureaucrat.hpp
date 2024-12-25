@@ -3,6 +3,9 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat {
     private:
@@ -37,6 +40,7 @@ class Bureaucrat {
         //Destructor
         ~Bureaucrat();
         //members
+        void    executeForm(AForm const & form);
     private:
         void    checkGrade(int grade) const;
 };

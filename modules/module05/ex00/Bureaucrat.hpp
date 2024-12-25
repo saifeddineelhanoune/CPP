@@ -8,6 +8,7 @@ class Bureaucrat {
     private:
         const   std::string name;
         int     grade;
+        Bureaucrat();
     public:
         class GradeTooHighException : public std::exception {
             public:
@@ -18,7 +19,6 @@ class Bureaucrat {
                 const char* what() const throw();
         };
         // Constructors
-        Bureaucrat();
         Bureaucrat(const Bureaucrat& b);
         Bureaucrat(const std::string &name, int grade);
 
