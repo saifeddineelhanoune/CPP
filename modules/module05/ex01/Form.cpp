@@ -1,8 +1,7 @@
 #include "Form.hpp"
 
 Form::Form(const std::string &name, int sign, int exec) : \
-_name(name), _gradeExec(exec), _gradeSign(sign) {
-    std::cout << "Form Param constructor called" << std::endl;
+_name(name),  _gradeSign(sign), _gradeExec(exec), _isSigned(false) {
     if (_gradeSign < 1 || _gradeExec < 1)
         throw Form::GradeTooHighException();
     else if (_gradeSign > 150 || _gradeExec > 150)
@@ -42,15 +41,16 @@ bool    Form::getIsSigned() const {
 
 void    Form::beSigned(const Bureaucrat& bureaucrat) {
     if (bureaucrat.getGrade() > _gradeSign)
-        throw GradeTooLowException();
-    _isSigned = true;
+        throw Form::GradeTooLowException();
+    else
+        _isSigned = true;
 }
 
 std::ostream&   operator<<(std::ostream& out, const Form& f) {
     out << "Form name: " << f.getName() << std::endl;
-    out << "Form Sign Grade:" << f.getGradeSign() << std::endl;
-    out << "Form Exec Grade:" << f.getGradeExec() << std::endl;
-    out << "Form Is Signed:" << (f.getIsSigned() ? "yes" : "no") << std::endl;
+    out << "Form Sign Grade: " << f.getGradeSign() << std::endl;
+    out << "Form Exec Grade: " << f.getGradeExec() << std::endl;
+    out << "Form Is Signed: " << (f.getIsSigned() ? "yes" : "no") << std::endl;
     return out;
 }
 
