@@ -1,14 +1,16 @@
-#include "main.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
     try {
         Bureaucrat high("high", 1);
-        Bureaucrat meduim("meduim", 1);
-        Bureaucrat Low("low", 1);
-        std::string name = "bureaucrat";
-        ShrubberyCreationForm shrubbery(name);
-        RobotomyRequestForm roboto(name);
-        PresidentialPardonForm presidential(name);
+        Bureaucrat meduim("meduim", 75);
+        Bureaucrat Low("low", 150);
+
+        ShrubberyCreationForm shrubbery("home");
+        RobotomyRequestForm roboto("Garden");
+        PresidentialPardonForm presidential("room");
 
         high.signForm(shrubbery);
         meduim.signForm(roboto);

@@ -17,32 +17,35 @@
 #include <cstdlib>
 #include <limits>
 #include <cmath>
+#include <cctype>
 
 class ScalarConverter {
     private:
-        ScalarConverter();
-        struct ConversionData {
-            double value;
-            bool isNan;
-            bool isInf;
-            bool isImpossible;
-            std::string literal;
-            ConversionData();
-        };
-
-        static bool isNan(double value);
-        static bool isInf(double value);
-        static void handleSpecialCases(ConversionData& data);
-        static void handleChar(ConversionData& data);
-        static void handleInt(ConversionData& data);
-        static void handleFloat(ConversionData& data);
-        static void handleDouble(ConversionData& data);
-    public:
+        // Private constructor to prevent instantiation
         ScalarConverter();
         ScalarConverter(const ScalarConverter &scalar);
-        ScalarConverter &operator=(ScalarConverter const &obj);
-        static void convert(const std::string &literal);
         ~ScalarConverter();
+        ScalarConverter &operator=(const ScalarConverter &obj);
+        
+        // Helper methods for type detection
+        static bool isChar(const std::string &literal);
+        static bool isInt(const std::string &literal);
+        static bool isFloat(const std::string &literal);
+        static bool isDouble(const std::string &literal);
+        static bool isPseudoLiteral(const std::string &literal);
+        
+        // Conversion methods
+        static void convertToChar(double value, bool impossible);
+        static void convertToInt(double value, bool impossible);
+        static void convertToFloat(double value, bool impossible);
+        static void convertToDouble(double value, bool impossible);
+        
+        // Utility methods
+        static bool isNan(double value);
+        static bool isInf(double value);
+
+    public:
+        static void convert(const std::string &literal);
 };
 
 
