@@ -1,13 +1,15 @@
 #pragma once
 
-#include <iostream>
 #include <stdexcept>
 #include <string>
+#include <iostream>
 
 class Bureaucrat {
     private:
         const   std::string name;
         int     grade;
+        Bureaucrat();
+        Bureaucrat(const Bureaucrat& b);
     public:
         class GradeTooHighException : public std::exception {
             public:
@@ -18,15 +20,11 @@ class Bureaucrat {
                 const char* what() const throw();
         };
         // Constructors
-        Bureaucrat();
-        Bureaucrat(const Bureaucrat& b);
         Bureaucrat(const std::string &name, int grade);
-
         // Accessors
         const std::string& getName() const;
-        int getGrade() const;
+        int     getGrade() const;
         void    setGrade(int grade);
-        void    setName(const std::string& name);
 
         // Methods to modify the grade
         void incrementGrade();

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 #include <string>
 #include "AForm.hpp"
 
@@ -11,6 +11,7 @@ class Bureaucrat {
     private:
         const   std::string name;
         int     grade;
+        void    checkGrade(int grade) const;
     public:
         class GradeTooHighException : public std::exception {
             public:
@@ -20,31 +21,18 @@ class Bureaucrat {
             public:
                 const char* what() const throw();
         };
-        // Constructors
         Bureaucrat();
         Bureaucrat(const Bureaucrat& b);
         Bureaucrat(const std::string &name, int grade);
-
-        // Accessors
         const std::string& getName() const;
         int getGrade() const;
         void    setGrade(int grade);
-        void    setName(const std::string& name);
-
-        // Methods to modify the grade
         void incrementGrade();
         void decrementGrade();
-
-        //Overload of the assignement operator
         Bureaucrat& operator=(const Bureaucrat& b);
-
-        //Destructor
+        void    executeForm(AForm& form);
+        void    signForm(AForm& form);
         ~Bureaucrat();
-        //members
-        void    signForm(AForm &form);
-    private:
-        void    checkGrade(int grade) const;
 };
-// Overload of the output operator
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b);
 

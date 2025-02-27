@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name) {
     this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat() : name(""), grade(0) {
+Bureaucrat::Bureaucrat() : name(""), grade(149) {
     std::cout << "Default constructor called" << std::endl;
 }
 
@@ -24,11 +24,20 @@ int Bureaucrat::getGrade() const {
 void Bureaucrat::incrementGrade() {
     grade--;
     checkGrade(grade);
+    std::cout << grade << std::endl;
 }
 
 void Bureaucrat::decrementGrade() {
     grade++;
     checkGrade(grade);
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& b) {
+    grade = b.grade;
+}
+
+void    Bureaucrat::setGrade(int grade) {
+    this->grade = grade;
 }
 
 // Overload of the stream<< operator and asignement= operator
@@ -58,7 +67,7 @@ Bureaucrat::~Bureaucrat() {
 }
 
 void    Bureaucrat::checkGrade(int grade) const {
-    if (grade < 1)
+    if (grade <= 0)
         throw GradeTooHighException();
     if (grade > 150)
         throw GradeTooLowException();
