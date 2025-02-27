@@ -19,9 +19,9 @@ int main() {
         high.executeForm(shrubbery);
         meduim.executeForm(roboto);
         low.executeForm(presidential);
-        
+
     } catch (const std::exception &e) {
-        std::cerr << "Exception caught" << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     return 0;
 }
