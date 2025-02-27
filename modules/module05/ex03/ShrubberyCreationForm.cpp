@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
+void ShrubberyCreationForm::execute(Bureaucrat& executor) {
     checkExecution(executor);
     createShrubbery();
 }
@@ -24,10 +24,9 @@ void ShrubberyCreationForm::createShrubbery() const {
     file << "   /*/\\/\\/\\   " << std::endl;
     file << "  /\\O\\/\\*\\/\\  " << std::endl;
     file << " /\\*\\/\\*\\/\\/\\ " << std::endl;
-    file << "/\\O\\/\\/*/\\/O/\\" << std::endl;
+    file << "/\\O\\/();\\/*/\\/O/\\" << std::endl;
     file << "      ||      " << std::endl;
     file << "      ||      " << std::endl;
     file << "      ||      " << std::endl;
-    
     file.close();
 }

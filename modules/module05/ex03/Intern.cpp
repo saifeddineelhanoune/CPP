@@ -1,41 +1,49 @@
 #include "Intern.hpp"
 
 Intern::Intern() {}
-Intern::Intern(const Intern& other) { (void)other; }
-Intern::~Intern() {}
+
+Intern::Intern(const Intern& other) {
+    (void)other;
+}
+
 Intern& Intern::operator=(const Intern& other) {
     (void)other;
     return *this;
 }
 
-const Intern::FormCreator Intern::formCreators[] = {
-    {"shrubbery creation", &Intern::createShrubberyForm},
-    {"robotomy request", &Intern::createRobotomyForm},
-    {"presidential pardon", &Intern::createPresidentialForm}
-};
+Intern::~Intern() {}
 
-AForm* Intern::createShrubberyForm(const std::string& target) {
-    return new ShrubberyCreationForm(target);
-}
-
-AForm* Intern::createRobotomyForm(const std::string& target) {
+AForm* Intern::createRobotomyRequest(const std::string& target) {
     return new RobotomyRequestForm(target);
 }
 
-AForm* Intern::createPresidentialForm(const std::string& target) {
+AForm* Intern::createPresidentialPardon(const std::string& target) {
     return new PresidentialPardonForm(target);
 }
 
-AForm*  Intern::makeForm(const std::string& formName, const std::string& target) const {
-    for (short i = 0; i < 3; i++) {
-        if (formName == formCreators[i].formName) {
-            std::cout << "Intern creates " << formName << std::endl;
-            return formCreators[i].createFunction(target);
-        }
-    }
-    throw UnkownFormException();
+AForm* Intern::createShrubberyCreation(const std::string& target) {
+    return new ShrubberyCreationForm(target);
 }
 
-const char* Intern::UnkownFormException::what() const throw() {
-    return "Unknown form type requested";
-}
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) {
+    struct FormType {
+        std::string name;
+        AForm* (Intern::*create)(const std::string&);
+    };
+
+    const FormType forms[] = {
+        {"robotomy request", &Intern::createRobotomyRequest},
+        {"presidential pardon", &Intern::createPresidentialPardon},
+        {"shrubbery creation", &Intern::createShrubberyCreation}
+    };
+
+    for (int i = 0; i < 3; i++) {
+        if (formName == forms[i].name) {
+            std::cout << "Intern creates " << formName << std::endl;
+            return (this->*forms[i].create)(target);
+        }
+    }
+    
+    std::cerr << "Error: Form type '" << formName << "' does not exist" << std::endl;
+    return NULL;
+} 

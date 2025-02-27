@@ -1,32 +1,22 @@
 #pragma once
 
 #include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
-class AForm;
+#include "ShrubberyCreationForm.hpp"
 
 class Intern {
-    private:
-
-        struct FormCreator {
-            std::string formName;
-            AForm*  (*createFunction)(const std::string&);
-        };
-        static AForm* createShrubberyForm(const std::string& target);
-        static AForm* createPresidentialForm(const std::string& target); 
-        static AForm* createRobotomyForm(const std::string& target);
-
-        static const FormCreator formCreators[];
     public:
         Intern();
-        Intern(const Intern &intern);
-        ~Intern();
-        Intern& operator=(const Intern& intern);
-        AForm*  makeForm(const std::string& formName, const std::string& target) const;
-        class   UnkownFormException : public std::exception {
-            public:
-                virtual const char* what() const throw();
-        };
-};
+        Intern(const Intern& other);
+        Intern& operator=(const Intern& other);
+        virtual ~Intern();
+
+        AForm* makeForm(const std::string& formName, const std::string& target);
+    
+    private:
+        typedef AForm* (Intern::*FormCreator)(const std::string& target);
+        AForm* createRobotomyRequest(const std::string& target);
+        AForm* createPresidentialPardon(const std::string& target);
+        AForm* createShrubberyCreation(const std::string& target);
+}; 

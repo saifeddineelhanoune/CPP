@@ -34,7 +34,7 @@ class AForm {
         bool        getIsSigned() const;
         void    beSigned(const Bureaucrat& b);
         virtual void    execute(Bureaucrat &executor) = 0;
-        ~AForm();
+        virtual ~AForm();
 
     protected:
         void    checkExecution(Bureaucrat& executor);
