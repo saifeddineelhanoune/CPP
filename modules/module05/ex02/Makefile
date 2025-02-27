@@ -1,7 +1,10 @@
 NAME = AForm
-SRC = $(shell ls *.cpp)
+SRC = AForm.cpp Bureaucrat.cpp main.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 OBJ = $(SRC:.cpp=.o)
-FLAGS =  -Wall -Wextra -Werror -std=c++98
+FLAGS =  -Wall -Wextra -Werror #td=c++98
 HEADER = $(shell ls *.hpp)
 
 all: $(NAME)

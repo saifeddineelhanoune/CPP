@@ -6,7 +6,7 @@ int main() {
     try {
         Bureaucrat high("high", 1);
         Bureaucrat meduim("meduim", 75);
-        Bureaucrat Low("low", 150);
+        Bureaucrat low("low", 150);
 
         ShrubberyCreationForm shrubbery("home");
         RobotomyRequestForm roboto("Garden");
@@ -14,13 +14,13 @@ int main() {
 
         high.signForm(shrubbery);
         meduim.signForm(roboto);
-        Low.signForm(presidential);
+        low.signForm(presidential);
 
-        shrubbery.execute(high);
-        roboto.execute(Low);
-        presidential.execute(meduim);
-    } catch (const std::exception &e) {
-        std::cerr << "Because :" << e.what() <<std::endl;
+        high.executeForm(shrubbery);
+        meduim.executeForm(roboto);
+        low.executeForm(presidential);
+    } catch (...) {
+        std::cerr << "Exception caught" << std::endl;
     }
     return 0;
 }

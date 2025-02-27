@@ -9,7 +9,7 @@ class PresidentialPardonForm : public AForm {
     public:
         PresidentialPardonForm(const std::string& target);
         virtual ~PresidentialPardonForm();
-        void execute(const Bureaucrat& executor) const;
+        void execute(Bureaucrat& executor);
         PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
         
     private:

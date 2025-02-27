@@ -23,6 +23,7 @@ int AForm::getGradeToSign() const { return _gradeToSign; }
 int AForm::getGradeToExecute() const { return _gradeToExecute; }
 
 void AForm::beSigned(const Bureaucrat& bureaucrat) {
+    std::cout << bureaucrat.getName() << std::endl;
     if (bureaucrat.getGrade() > _gradeToSign)
         throw GradeTooLowException();
     _signed = true;

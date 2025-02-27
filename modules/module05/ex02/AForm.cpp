@@ -38,10 +38,10 @@ bool    AForm::getIsSigned() const {
 }
 
 void    AForm::beSigned(const Bureaucrat& bureaucrat) {
+    std::cout << bureaucrat.getGrade() << std::endl;
     if (bureaucrat.getGrade() > _gradeSign)
         throw AForm::GradeTooLowException();
-    else
-        _isSigned = true;
+    _isSigned = true;
 }
 
 std::ostream&   operator<<(std::ostream& out, const AForm& f) {
@@ -64,6 +64,13 @@ AForm::~AForm() {
     std::cout << "Form destructor called" << std::endl; 
 }
 
-const char *AForm::FormAlreadySigned::what() const throw() {
-    return "Form Already signed";
+const char *AForm::FormNotSigned::what() const throw() {
+    return "Form Not signed";
+}
+
+void    AForm::checkExecution(Bureaucrat &executor) {
+    if (!_isSigned)
+        throw AForm::FormNotSigned();
+    else if (executor.getGrade() > _gradeExec)
+        throw AForm::GradeTooLowException();
 }
