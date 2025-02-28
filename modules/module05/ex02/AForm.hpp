@@ -14,15 +14,15 @@ class AForm {
 
     public:
         AForm(const AForm& f);
-        class GradeTooHighException : std::exception {
+        class GradeTooHighException : public std::exception {
             public:
                 const char* what() const throw();
         };
-        class GradeTooLowException : std::exception {
+        class GradeTooLowException : public std::exception {
             public:
                 const char* what() const throw();
         };
-        class FormNotSigned : std::exception {
+        class FormNotSigned : public std::exception {
             public:
                 const char* what() const throw();
         };
@@ -33,11 +33,11 @@ class AForm {
         int         getGradeExec() const;
         bool        getIsSigned() const;
         void    beSigned(const Bureaucrat& b);
-        virtual void    execute(Bureaucrat &executor) = 0;
-        ~AForm();
+        virtual void    execute(Bureaucrat &executor) const = 0;
+        virtual ~AForm();
 
     protected:
-        void    checkExecution(Bureaucrat& executor);
+        void    checkExecution(Bureaucrat& executor) const;
 };
 
 std::ostream&   operator<<(std::ostream& out, const AForm& f);
