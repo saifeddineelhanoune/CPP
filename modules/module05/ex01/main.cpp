@@ -23,5 +23,16 @@ int main() {
     } catch (const std::exception &e) {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "-------------------" << std::endl;
+    try {
+        Bureaucrat jack("jack", 100);
+        Form form("High members", 1, 50);
+
+        jack.incrementGrade();
+        jack.signForm(form);
+        
+    } catch (const std::exception &e) {
+        std::cerr << "because: " << e.what() << std::endl;
+    }
     return 0;
 }

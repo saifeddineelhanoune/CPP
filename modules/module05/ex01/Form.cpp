@@ -27,11 +27,11 @@ const std::string& Form::getName() const {
     return _name;
 }
 
-int Form::getGradeSign() const {
+int     Form::getGradeSign() const {
     return _gradeSign;
 }
 
-int Form::getGradeExec() const {
+int     Form::getGradeExec() const {
     return _gradeExec;
 }
 

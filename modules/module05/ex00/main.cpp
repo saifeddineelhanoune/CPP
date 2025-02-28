@@ -10,8 +10,9 @@ int main() {
         b1.incrementGrade();
     } 
     catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "because: " << e.what() << std::endl;
     }
+    std::cout << "-------------------" << std::endl;
     try {
         Bureaucrat b2("Bob", 149);
         std::cout << b2 << std::endl;
@@ -20,7 +21,7 @@ int main() {
         b2.decrementGrade();
     }
     catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "because: " << e.what() << std::endl;
     }
     return 0;
 }
