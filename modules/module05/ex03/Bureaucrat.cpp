@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat() : name(""), grade(149) {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& b) : name(b.name) {
-    grade = b.grade;
+    setGrade(b.grade);
 }
 
 const std::string& Bureaucrat::getName() const {
@@ -20,7 +20,7 @@ const std::string& Bureaucrat::getName() const {
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) {
     if (this != &b)
-        grade = b.grade;
+        setGrade(b.grade);
     return *this;
 }
 
@@ -44,7 +44,7 @@ void    Bureaucrat::signForm(AForm& form) {
         form.beSigned(*this);
         std::cout << this->name << " Signed " << form.getName() << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << this->name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+        std::cerr << this->name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
 }
 

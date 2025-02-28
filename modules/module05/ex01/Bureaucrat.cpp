@@ -10,7 +10,7 @@ Bureaucrat::Bureaucrat() : name(""), grade(149) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& b) {
+Bureaucrat::Bureaucrat(const Bureaucrat& b) : name(b.name) {
     grade = b.grade;
 }
 
@@ -18,7 +18,7 @@ const std::string& Bureaucrat::getName() const {
     return name;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) : name(b.name) {
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) {
     if (this != &b)
         grade = b.grade;
     return *this;

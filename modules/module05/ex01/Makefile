@@ -1,8 +1,8 @@
 NAME = Form
-SRC = $(shell ls *.cpp)
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-HEADER = $(shell ls *.hpp)
+HEADER = Bureaucrat.hpp Form.hpp
 
 all: $(NAME)
 

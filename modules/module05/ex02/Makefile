@@ -5,7 +5,10 @@ SRC = AForm.cpp Bureaucrat.cpp main.cpp \
 		ShrubberyCreationForm.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS =  -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-HEADER = $(shell ls *.hpp)
+HEADER = AForm.hpp Bureaucrat.hpp \
+		PresidentialPardonForm.hpp \
+		RobotomyRequestForm.hpp \
+		ShrubberyCreationForm.hpp
 
 all: $(NAME)
 

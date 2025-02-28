@@ -11,7 +11,7 @@ _name(name),  _gradeSign(sign), _gradeExec(exec), _isSigned(false) {
 AForm::AForm(const AForm& obj) : _name(obj.getName()),
 _gradeSign(obj.getGradeSign()), _gradeExec(obj.getGradeExec()) {
     std::cout << "AForm Copy constructor called" << std::endl;
-    *this = obj;
+    
 }
 
 AForm&   AForm::operator=(const AForm& obj) {
