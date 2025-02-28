@@ -1,22 +1,29 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 
 typedef struct Animal Animal;
 typedef struct Dog Dog;
+typedef struct Cat Cat;
 
 typedef struct {
     void    (*speak)(Animal*);
     void    (*destroy)(Animal*);
-} AnimalVtable;
+} Vtable;
 
 struct Animal {
-    AnimalVtable* vptr;
+   Vtable* vptr;
 };
 
 struct Dog {
     Animal base;
     int age;
+};
+
+struct Cat {
+    Animal base;
+    char name[19];
 };
 
 
@@ -41,20 +48,34 @@ void    DogDestroy(Animal *this) {
     free(this);
 }
 
+void    CatSpeak(Animal* this) {
+    Cat* cat = (Cat*)this;
+    printf("Cat sound!\n");
+}
+
+void    CatDestroy(Animal *this) {
+    Cat* cat = (Cat*)this;
+    printf("Cat destroyed!\n");
+    free(this);
+}
 
 
-AnimalVtable animalvtable = {
+Vtable animalvtable = {
     .speak = AnimalSpeak,
     .destroy = AnimalDestroy
 };
 
-AnimalVtable DogVtable = {
+Vtable DogVtable = {
     .speak = DogSpeak,
     .destroy = DogDestroy
 };
 
+Vtable CatVtable = {
+    .speak = CatSpeak,
+    .destroy = CatDestroy
+};
 
-//new
+
 Animal *newAnimal() {
     Animal* animal = (Animal*)malloc(sizeof(Animal));
     animal->vptr = &(animalvtable);
@@ -68,14 +89,25 @@ Dog *newDog(int age) {
     return dog;
 }
 
+Cat *newCat(char *name) {
+    Cat* cat = (Cat*)malloc(sizeof(Cat));
+    cat->base.vptr = &CatVtable;
+    strcpy(cat->name, name);
+    return cat;
+}
+
 int main() {
     Animal *animal = newAnimal();
     Dog *dog = newDog(5);
+    char name[] = "mimi";
+    Cat* cat = newCat(name);
 
     animal->vptr->speak(animal);
     dog->base.vptr->speak((Animal*)dog);
+    cat->base.vptr->speak((Animal*)cat);
 
     animal->vptr->destroy(animal);
     dog->base.vptr->destroy((Animal*)dog);
+    cat->base.vptr->destroy((Animal*)cat);
     return 0;
 }
