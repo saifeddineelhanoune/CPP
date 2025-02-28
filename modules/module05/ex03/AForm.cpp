@@ -1,64 +1,75 @@
 #include "AForm.hpp"
 
-AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
-    : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
-    checkGrade(gradeToSign);
-    checkGrade(gradeToExecute);
+AForm::AForm(const std::string &name, int sign, int exec) : \
+_name(name),  _gradeSign(sign), _gradeExec(exec), _isSigned(false) {
+    if (_gradeSign < 1 || _gradeExec < 1)
+        throw AForm::GradeTooHighException();
+    else if (_gradeSign > 150 || _gradeExec > 150)
+        throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(const AForm& other)
-    : _name(other._name), _signed(other._signed), 
-      _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {}
+AForm::AForm(const AForm& obj) : _name(obj.getName()),
+_gradeSign(obj.getGradeSign()), _gradeExec(obj.getGradeExec()) {
+    std::cout << "AForm Copy constructor called" << std::endl;
+    *this = obj;
+}
 
-AForm::~AForm() {}
-
-AForm& AForm::operator=(const AForm& other) {
-    if (this != &other) _signed = other._signed;
+AForm&   AForm::operator=(const AForm& obj) {
+    std::cout << "Copy assignement called" << std::endl;
+    if (this != &obj)
+        _isSigned = obj._isSigned;
     return *this;
 }
 
-const std::string& AForm::getName() const { return _name; }
-bool AForm::isSigned() const { return _signed; }
-int AForm::getGradeToSign() const { return _gradeToSign; }
-int AForm::getGradeToExecute() const { return _gradeToExecute; }
-
-void AForm::beSigned(const Bureaucrat& bureaucrat) {
-    std::cout << bureaucrat.getName() << std::endl;
-    if (bureaucrat.getGrade() > _gradeToSign)
-        throw GradeTooLowException();
-    _signed = true;
+const std::string& AForm::getName() const {
+    return _name;
 }
 
-void AForm::checkExecution(const Bureaucrat& executor) const {
-    if (!_signed)
-        throw FormNotSignedException();
-    if (executor.getGrade() > _gradeToExecute)
-        throw GradeTooLowException();
+int AForm::getGradeSign() const {
+    return _gradeSign;
 }
 
-void AForm::checkGrade(int grade) const {
-    if (grade < 1)
-        throw GradeTooHighException();
-    if (grade > 150)
-        throw GradeTooLowException();
+int AForm::getGradeExec() const {
+    return _gradeExec;
 }
 
-const char* AForm::GradeTooHighException::what() const throw() {
-    return "Grade too high for form!";
+bool    AForm::getIsSigned() const {
+    return _isSigned;
 }
 
-const char* AForm::GradeTooLowException::what() const throw() {
-    return "Grade too low for form!";
+void    AForm::beSigned(const Bureaucrat& bureaucrat) {
+    if (bureaucrat.getGrade() > _gradeSign)
+        throw AForm::GradeTooLowException();
+    _isSigned = true;
 }
 
-const char* AForm::FormNotSignedException::what() const throw() {
-    return "Form not signed!";
+std::ostream&   operator<<(std::ostream& out, const AForm& f) {
+    out << "AForm name: " << f.getName() << std::endl;
+    out << "AForm Sign Grade: " << f.getGradeSign() << std::endl;
+    out << "AForm Exec Grade: " << f.getGradeExec() << std::endl;
+    out << "AForm Is Signed: " << (f.getIsSigned() ? "yes" : "no") << std::endl;
+    return out;
 }
 
-std::ostream& operator<<(std::ostream& os, const AForm& form) {
-    os << "Form " << form.getName() 
-       << " (Sign Grade: " << form.getGradeToSign()
-       << ", Execute Grade: " << form.getGradeToExecute()
-       << ", Signed: " << (form.isSigned() ? "yes" : "no") << ")";
-    return os;
+const char *AForm::GradeTooHighException::what() const throw() {
+    return "Grade Too High";
+}
+
+const char *AForm::GradeTooLowException::what() const throw() {
+    return "Grade Too Low";
+}
+
+AForm::~AForm() {
+    std::cout << "Form destructor called" << std::endl; 
+}
+
+const char *AForm::FormNotSigned::what() const throw() {
+    return "Form Not signed";
+}
+
+void    AForm::checkExecution(Bureaucrat &executor) const {
+    if (!_isSigned)
+        throw AForm::FormNotSigned();
+    else if (executor.getGrade() > _gradeExec)
+        throw AForm::GradeTooLowException();
 }

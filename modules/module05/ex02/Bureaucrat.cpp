@@ -10,7 +10,7 @@ Bureaucrat::Bureaucrat() : name(""), grade(149) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& b) {
+Bureaucrat::Bureaucrat(const Bureaucrat& b) : name(b.name) {
     grade = b.grade;
 }
 

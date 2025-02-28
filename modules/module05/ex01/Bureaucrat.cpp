@@ -18,7 +18,7 @@ const std::string& Bureaucrat::getName() const {
     return name;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) {
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) : name(b.name) {
     if (this != &b)
         grade = b.grade;
     return *this;

@@ -3,6 +3,7 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
+    std::srand(std::time(NULL));
     try {
         Bureaucrat high("high", 1);
         Bureaucrat meduim("meduim", 75);

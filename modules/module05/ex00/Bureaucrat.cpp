@@ -28,7 +28,7 @@ void Bureaucrat::decrementGrade() {
     checkGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& b) {
+Bureaucrat::Bureaucrat(const Bureaucrat& b) : name(b.name) {
     grade = b.grade;
 }
 
