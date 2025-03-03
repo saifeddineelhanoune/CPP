@@ -21,26 +21,22 @@
 
 class ScalarConverter {
     private:
-        // Private constructor to prevent instantiation
         ScalarConverter();
         ScalarConverter(const ScalarConverter &scalar);
         ~ScalarConverter();
         ScalarConverter &operator=(const ScalarConverter &obj);
         
-        // Helper methods for type detection
         static bool isChar(const std::string &literal);
         static bool isInt(const std::string &literal);
         static bool isFloat(const std::string &literal);
         static bool isDouble(const std::string &literal);
         static bool isPseudoLiteral(const std::string &literal);
         
-        // Conversion methods
         static void convertToChar(double value, bool impossible);
         static void convertToInt(double value, bool impossible);
         static void convertToFloat(double value, bool impossible);
         static void convertToDouble(double value, bool impossible);
         
-        // Utility methods
         static bool isNan(double value);
         static bool isInf(double value);
 
