@@ -1,36 +1,28 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
 int main() {
-    std::srand(std::time(NULL));
     try {
         Bureaucrat high("high", 1);
         Bureaucrat meduim("meduim", 75);
         Bureaucrat low("low", 150);
 
-        ShrubberyCreationForm shrubbery("dar");
+        ShrubberyCreationForm shrubbery("home");
         RobotomyRequestForm roboto("Garden");
         PresidentialPardonForm presidential("room");
 
         high.signForm(shrubbery);
-        meduim.signForm(roboto);
-        low.signForm(presidential);
+        high.signForm(roboto);
+        high.signForm(presidential);
 
-        high.executeForm(shrubbery);
-        meduim.executeForm(roboto);
-        low.executeForm(presidential);
-
-        std::cout << shrubbery << std::endl;
-        std::cout << roboto << std::endl;
-        std::cout << presidential << std::endl;
-
-        std::cout << high << std::endl;
-        std::cout << meduim << std::endl;
-        std::cout << high << std::endl;
+        meduim.executeForm(shrubbery);
+        // meduim.executeForm(roboto);
+        // low.executeForm(presidential);
 
     } catch (const std::exception &e) {
-        std::cerr << "because" << e.what() << std::endl;
+        std::cerr << "General error: " << e.what() << std::endl;
     }
     return 0;
 }
