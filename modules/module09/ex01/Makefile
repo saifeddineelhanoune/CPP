@@ -1,13 +1,13 @@
 NAME = RPN
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-
+HEADERS = RPN.hpp
 SRCS = main.cpp RPN.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADERS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp

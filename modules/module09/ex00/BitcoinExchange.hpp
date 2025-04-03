@@ -14,7 +14,6 @@ class BitcoinExchange {
 private:
     std::map<std::string, double> database;
     
-    // Helper methods
     bool isValidDate(const std::string& date);
     bool isValidValue(const double value);
     std::string findClosestDate(const std::string& date);

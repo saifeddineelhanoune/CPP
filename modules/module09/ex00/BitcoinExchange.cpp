@@ -40,7 +40,7 @@ void BitcoinExchange::loadDatabase(const std::string& filename) {
             std::string valueStr = line.substr(delimiterPos + 1);
             
             // Convert value to double
-            double value = std::atof(valueStr.c_str());
+            double value = std::strtod(valueStr.c_str(), NULL);
             database[date] = value;
         }
     }

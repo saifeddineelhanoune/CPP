@@ -2,11 +2,11 @@
 
 int main(int argc, char** argv) {
     if (argc != 2) {
-        std::cerr << "Error: could not open file." << std::endl;
+        std::cerr << "11" << std::endl;
         return 1;
     }
     
-    BitcoinExchange btc("data.csv");
+    BitcoinExchange btc;
     btc.processInputFile(argv[1]);
     
     return 0;
